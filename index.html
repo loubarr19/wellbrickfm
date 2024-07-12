@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wellbrick FM</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.youtube.com/embed/R6_3OchvW_c?si=RPudSfysBSpc-WNP"></script>
 </head>
 <body>
     <header>
@@ -12,13 +13,36 @@
     </header>
     <main>
         <div class="player">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/R6_3OchvW_c?si=RPudSfysBSpc-WNP" 
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
+            <div id="player"></div>
+            <button id="playButton">Play</button>
+            <button id="pauseButton">Pause</button>
         </div>
     </main>
     <footer>
-        <p>&copy; 2024 Wellbrick FM. Allll2l rights reserved.</p>
+        <p>&copy; 2024 Wellbrick FM. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Create a variable to hold the player
+        let player;
+
+        // This function creates the YouTube player
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '315',
+                width: '560',
+                videoId: 'VIDEO_ID', // Replace with your YouTube video ID
+            });
+        }
+
+        // Add event listeners to buttons
+        document.getElementById('playButton').addEventListener('click', function() {
+            player.playVideo();
+        });
+
+        document.getElementById('pauseButton').addEventListener('click', function() {
+            player.pauseVideo();
+        });
+    </script>
 </body>
 </html>
