@@ -6,6 +6,8 @@ const vinyl = document.getElementById('vinyl');
 const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
 const equalizer = document.getElementById('equalizer');
+const bars = document.querySelectorAll('.bar');
+let audioContext, analyser, source, frequencyData;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -22,6 +24,7 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     isPlayerReady = true;
     playPauseButton.addEventListener('click', handlePlayPause);
+    initializeAudioContext();
 }
 
 function handlePlayPause() {
@@ -63,10 +66,32 @@ function stopVinyl() {
     vinyl.style.animation = 'none';
 }
 
+function initializeAudioContext() {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 256;
+    frequencyData = new Uint8Array(analyser.frequencyBinCount);
+}
+
 function startEqualizer() {
-    equalizer.classList.add('active');
+    if (player.getIframe()) {
+        source = audioContext.createMediaElementSource(player.getIframe());
+        source.connect(analyser);
+        analyser.connect(audioContext.destination);
+        animateEqualizer();
+    }
 }
 
 function stopEqualizer() {
-    equalizer.classList.remove('active');
+    cancelAnimationFrame(animationId);
+    bars.forEach(bar => bar.style.height = '50px'); // Reset bars height
 }
+
+let animationId;
+function animateEqualizer() {
+    analyser.getByteFrequencyData(frequencyData);
+    bars.forEach((bar, index) => {
+        const barHeight = frequencyData[index] / 2; // Scale the bar height
+        bar.style.height = `${barHeight}px`;
+    });
+    animationId = requestAnimationFrame(animateEqual
