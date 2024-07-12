@@ -5,6 +5,7 @@ const arm = document.getElementById('arm');
 const vinyl = document.getElementById('vinyl');
 const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
+const equalizer = document.getElementById('equalizer');
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -30,11 +31,13 @@ function handlePlayPause() {
         player.pauseVideo();
         stopVinyl();
         stopArm();
+        stopEqualizer();
         playPauseButton.textContent = 'Play';
     } else {
         player.playVideo();
         startVinyl();
         moveArm(); // Move arm onto the vinyl
+        startEqualizer();
         playPauseButton.textContent = 'Pause';
     }
     isPlaying = !isPlaying;
@@ -53,9 +56,17 @@ function stopArm() {
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 8s linear infinite'; // Adjust speed as needed
+    vinyl.style.animation = 'spin 7s linear infinite'; // Adjust speed as needed
 }
 
 function stopVinyl() {
     vinyl.style.animation = 'none';
+}
+
+function startEqualizer() {
+    equalizer.classList.add('active');
+}
+
+function stopEqualizer() {
+    equalizer.classList.remove('active');
 }
