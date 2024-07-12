@@ -9,12 +9,12 @@
 </head>
 <body>
     <header>
-        <h1>Wellbrick FM</h1>
+        <h1>Wellzbrick FM</h1>
     </header>
     <main>
         <div class="player">
             <div id="player"></div>
-            <button id="playButton">Play Grooves</button>
+            <button id="playButton">Play</button>
             <button id="pauseButton">Pause</button>
         </div>
     </main>
@@ -23,7 +23,6 @@
     </footer>
 
     <script>
-        // Create a variable to hold the player
         let player;
 
         // This function creates the YouTube player
@@ -31,17 +30,28 @@
             player = new YT.Player('player', {
                 height: '315',
                 width: '560',
-                videoId: 'R6_3OchvW_c?si=RPudSfysBSpc-WNP', // Replace with your YouTube video ID
+                videoId: 'R6_3OchvW_c?si=lcC5uO8Zc0r4p8t-', // Replace with your YouTube video ID
+                events: {
+                    'onReady': onPlayerReady
+                }
             });
         }
 
-        // Add event listeners to buttons
+        function onPlayerReady(event) {
+            // Optional: You can autoplay the video when ready if desired
+            // event.target.playVideo();
+        }
+
         document.getElementById('playButton').addEventListener('click', function() {
-            player.playVideo();
+            if (player) {
+                player.playVideo();
+            }
         });
 
         document.getElementById('pauseButton').addEventListener('click', function() {
-            player.pauseVideo();
+            if (player) {
+                player.pauseVideo();
+            }
         });
     </script>
 </body>
