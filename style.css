@@ -1,0 +1,23 @@
+body {
+    font-family: 'Press Start 2P', cursive; /* Example retro font */
+    background-color: #000;
+    color: #00ff00;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background-color: #ff00ff;
+}
+
+.player {
+    margin: 50px auto;
+}
+
+audio {
+    width: 300px;
+}
+
+footer {
+    margin-top: 50px;
+}
