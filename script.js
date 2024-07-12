@@ -36,11 +36,36 @@ function onPlayerError(event) {
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 3s linear infinite'; // Adjust speed as needed
+    vinyl.style.animation = 'spin 6s linear infinite'; // Adjust speed as needed
     arm.style.transform = 'rotate(-30deg)'; // Adjust arm angle as needed
 }
 
 function stopVinyl() {
     vinyl.style.animation = 'none';
     arm.style.transform = 'rotate(0deg)'; // Reset arm angle
+}
+
+function onPlayerReady(event) {
+    playPauseButton.addEventListener('click', () => {
+        if (isPlaying) {
+            player.pauseVideo();
+            stopVinyl();
+            stopArm();
+            playPauseButton.textContent = 'Play';
+        } else {
+            player.playVideo();
+            startVinyl();
+            moveArm(); // Move arm onto the vinyl
+            playPauseButton.textContent = 'Pause';
+        }
+        isPlaying = !isPlaying;
+    });
+}
+
+function moveArm() {
+    arm.classList.add('move'); // Add the move class to animate the arm
+}
+
+function stopArm() {
+    arm.classList.remove('move'); // Remove the move class to reset
 }
