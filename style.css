@@ -1,5 +1,5 @@
 body {
-    background-color: #1c1c1c;
+    background: linear-gradient(135deg, #2b2d42, #8d99ae);
     color: #ffffff;
     display: flex;
     justify-content: center;
@@ -7,10 +7,13 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
+    text-align: center;
 }
 
-.container {
-    text-align: center;
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .record-player {
@@ -19,8 +22,7 @@ body {
     padding: 20px;
     border-radius: 20px;
     background: linear-gradient(145deg, #3f3f3f, #2a2a2a);
-    box-shadow: 20px 20px 60px #111, 
-                -20px -20px 60px #444;
+    box-shadow: 20px 20px 60px #111, -20px -20px 60px #444;
 }
 
 .turntable {
@@ -46,14 +48,19 @@ body {
 }
 
 .arm {
-    width: 10px;
-    height: 100px;
-    background-color: #ff007f; /* Neon pink arm */
+    width: 12px; /* Thicker arm for detail */
+    height: 120px; /* Longer arm */
+    background: linear-gradient(to bottom, #ff007f, #ff3f8c); /* Gradient for detail */
     position: absolute;
     left: 50%;
     bottom: 70%;
     transform: rotate(0deg);
     transform-origin: top;
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.arm.move {
+    transform: rotate(-30deg) translateY(-50px); /* Adjust movement */
 }
 
 @keyframes spin {
@@ -70,25 +77,10 @@ button {
     border: none;
     border-radius: 5px;
     color: white;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
     background-color: #e6007a; /* Darker shade on hover */
-}
-
-.arm {
-    width: 10px;
-    height: 100px;
-    background-color: #ff007f; /* Neon pink arm */
-    position: absolute;
-    left: 50%;
-    bottom: 70%;
-    transform: rotate(0deg);
-    transform-origin: top;
-    transition: transform 0.5s ease; /* Smooth transition */
-}
-
-.arm.move {
-    transform: rotate(-30deg) translateY(-50px); /* Adjust movement */
+    transform: scale(1.1); /* Slight scale up on hover */
 }
