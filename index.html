@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wellbrick FM</title>
+    <title>Wellbsrick FM</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://www.youtube.com/iframe_api"></script>
 </head>
@@ -25,7 +25,7 @@
     <script>
         let player;
 
-        // This function creates the YouTube player
+        // Create the YouTube player when the API is ready
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
                 height: '315',
@@ -38,18 +38,18 @@
         }
 
         function onPlayerReady(event) {
-            // Optional: You can autoplay the video when ready if desired
+            // Optional: Can start playback when ready
             // event.target.playVideo();
         }
 
         document.getElementById('playButton').addEventListener('click', function() {
-            if (player) {
+            if (player && typeof player.playVideo === 'function') {
                 player.playVideo();
             }
         });
 
         document.getElementById('pauseButton').addEventListener('click', function() {
-            if (player) {
+            if (player && typeof player.pauseVideo === 'function') {
                 player.pauseVideo();
             }
         });
