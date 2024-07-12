@@ -14,8 +14,8 @@
     <main>
         <div class="player">
             <div id="player"></div>
-            <button id="playButton">Play</button>
-            <button id="pauseButton">Pause</button>
+            <button id="playButton" disabled>Play</button>
+            <button id="pauseButton" disabled>Pause</button>
         </div>
     </main>
     <footer>
@@ -40,6 +40,9 @@
 
         function onPlayerReady(event) {
             alert("Player is ready.");
+            // Enable the buttons when the player is ready
+            document.getElementById('playButton').disabled = false;
+            document.getElementById('pauseButton').disabled = false;
         }
 
         document.getElementById('playButton').addEventListener('click', function() {
