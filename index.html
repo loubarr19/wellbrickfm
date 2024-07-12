@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinyl Player</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
@@ -12,13 +12,13 @@
         <div class="record-player">
             <div class="turntable">
                 <div class="arm" id="arm"></div>
-                <div class="vinyl" id="vinyl"></div>
+                <div class="vinyl" id="vinyl" style="background-image: url('https://img.youtube.com/vi/R6_3OchvW_c/hqdefault.jpg');"></div>
             </div>
             <button id="playPauseButton" class="play">Play</button>
-            <div id="player" style="display: none;"></div> <!-- Hidden player -->
         </div>
     </div>
 
+    <div id="player" style="display: none;"></div> <!-- Hidden player -->
     <script src="script.js"></script>
 </body>
 </html>
