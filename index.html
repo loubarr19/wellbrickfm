@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wellbrick FM</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
@@ -24,10 +24,11 @@
 
     <script>
         let player;
-         console.log("HI.");
-        // This function creates the YouTube player when the API is ready
+        
+         alert("HI.");
+        
         function onYouTubeIframeAPIReady() {
-            console.log("YouTube Iframe API is ready.");
+            alert("YouTube Iframe API is ready.");
             player = new YT.Player('player', {
                 height: '315',
                 width: '560',
@@ -36,33 +37,33 @@
                     'onReady': onPlayerReady
                 }
             });
-            console.log("Player initialized.");
+            alert("Player initialized.");
         }
 
         function onPlayerReady(event) {
-            console.log("Player is ready.");
+            alert("Player is ready.");
             // Enable the buttons when the player is ready
             document.getElementById('playButton').disabled = false;
             document.getElementById('pauseButton').disabled = false;
         }
 
         document.getElementById('playButton').addEventListener('click', function() {
-            console.log("Play button clicked.");
+            alert("Play button clicked.");
             if (player && typeof player.playVideo === 'function') {
                 player.playVideo();
-                console.log("Video is playing.");
+                alert("Video is playing.");
             } else {
-                console.log("Player is not initialized or playVideo is not a function.");
+                alert("Player is not initialized or playVideo is not a function.");
             }
         });
 
         document.getElementById('pauseButton').addEventListener('click', function() {
-            console.log("Pause button clicked.");
+            alert("Pause button clicked.");
             if (player && typeof player.pauseVideo === 'function') {
                 player.pauseVideo();
-                console.log("Video is paused.");
+                alert("Video is paused.");
             } else {
-                console.log("Player is not initialized or pauseVideo is not a function.");
+                alert("Player is not initialized or pauseVideo is not a function.");
             }
         });
     </script>
