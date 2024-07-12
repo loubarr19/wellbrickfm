@@ -1,4 +1,3 @@
-
 let player;
 let isPlaying = false;
 const arm = document.getElementById('arm');
