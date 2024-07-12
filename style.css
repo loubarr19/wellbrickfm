@@ -69,13 +69,16 @@ h1 {
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    position: absolute;
+    bottom: 20px; /* Adjust as necessary */
+    right: 20px; /* Adjust as necessary */
+    width: 60px; /* Set width for roundness */
+    height: 60px; /* Set height for roundness */
+    border-radius: 50%; /* Makes the button round */
     font-size: 16px;
     cursor: pointer;
     background-color: #ff007f; /* Neon pink button */
     border: none;
-    border-radius: 5px;
     color: white;
     transition: background-color 0.3s, transform 0.2s;
 }
