@@ -76,3 +76,19 @@ button {
 button:hover {
     background-color: #e6007a; /* Darker shade on hover */
 }
+
+.arm {
+    width: 10px;
+    height: 100px;
+    background-color: #ff007f; /* Neon pink arm */
+    position: absolute;
+    left: 50%;
+    bottom: 70%;
+    transform: rotate(0deg);
+    transform-origin: top;
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.arm.move {
+    transform: rotate(-30deg) translateY(-50px); /* Adjust movement */
+}
