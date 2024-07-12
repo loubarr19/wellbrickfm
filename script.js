@@ -48,7 +48,7 @@ function stopArm() {
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 3s linear infinite'; // Adjust speed as needed
+    vinyl.style.animation = 'spin 8s linear infinite'; // Adjust speed as needed
 }
 
 function stopVinyl() {
