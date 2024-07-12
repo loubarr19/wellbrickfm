@@ -41,15 +41,17 @@
     alert("Player initialized.");
 }
 
+        function onPlayerError(event) {
+    alert("Error: " + event.data); // Display error code
+}
+        
 function onPlayerReady(event) {
     alert("Player is ready.");
     document.getElementById('playButton').disabled = false;
     document.getElementById('pauseButton').disabled = false;
 }
 
-function onPlayerError(event) {
-    alert("Error: " + event.data); // Display error code
-}
+
         document.getElementById('playButton').addEventListener('click', function() {
             alert("Play button clicked.");
             if (player && typeof player.playVideo === 'function') {
