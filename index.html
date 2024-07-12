@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wellbrick FM</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
@@ -18,57 +17,41 @@
             <button id="pauseButton" disabled>Pause</button>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Wellbrick FM. All rights reserved.</p>
-    </footer>
 
     <script>
         let player;
-        
-         alert("HI.");
-        
+
         function onYouTubeIframeAPIReady() {
-            alert("YouTube Iframe API is ready.");
             player = new YT.Player('player', {
                 height: '315',
                 width: '560',
-                videoId: 'R6_3OchvW_c?si=DX1bEc3Y76DWHdOi', // Replace with your YouTube video ID
+                videoId: 'dQw4w9WgXcQ', // Valid YouTube video ID
                 events: {
-            'onReady': onPlayerReady,
-            'onError': onPlayerError // Optional: to catch initialization errors
+                    'onReady': onPlayerReady,
+                    'onError': onPlayerError
+                }
+            });
         }
-    });
-    alert("Player initialized.");
-}
+
+        function onPlayerReady(event) {
+            alert("Player is ready.");
+            document.getElementById('playButton').disabled = false;
+            document.getElementById('pauseButton').disabled = false;
+        }
 
         function onPlayerError(event) {
-    alert("Error: " + event.data); // Display error code
-}
-        
-function onPlayerReady(event) {
-    alert("Player is ready.");
-    document.getElementById('playButton').disabled = false;
-    document.getElementById('pauseButton').disabled = false;
-}
-
+            alert("Error: " + event.data); // Display error code
+        }
 
         document.getElementById('playButton').addEventListener('click', function() {
-            alert("Play button clicked.");
             if (player && typeof player.playVideo === 'function') {
                 player.playVideo();
-                alert("Video is playing.");
-            } else {
-                alert("Player is not initialized or playVideo is not a function.");
             }
         });
 
         document.getElementById('pauseButton').addEventListener('click', function() {
-            alert("Pause button clicked.");
             if (player && typeof player.pauseVideo === 'function') {
                 player.pauseVideo();
-                alert("Video is paused.");
-            } else {
-                alert("Player is not initialized or pauseVideo is not a function.");
             }
         });
     </script>
