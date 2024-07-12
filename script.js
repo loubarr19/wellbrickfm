@@ -1,5 +1,6 @@
 let player;
 let isPlaying = false;
+let isPlayerReady = false;
 const arm = document.getElementById('arm');
 const vinyl = document.getElementById('vinyl');
 const playPauseButton = document.getElementById('playPauseButton');
@@ -18,21 +19,25 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    playPauseButton.addEventListener('click', () => {
-        clickSound.play(); // Play the sound effect
-        if (isPlaying) {
-            player.pauseVideo();
-            stopVinyl();
-            stopArm();
-            playPauseButton.textContent = 'Play';
-        } else {
-            player.playVideo();
-            startVinyl();
-            moveArm(); // Move arm onto the vinyl
-            playPauseButton.textContent = 'Pause';
-        }
-        isPlaying = !isPlaying;
-    });
+    isPlayerReady = true;
+    playPauseButton.addEventListener('click', handlePlayPause);
+}
+
+function handlePlayPause() {
+    if (!isPlayerReady) return; // If the player is not ready, do nothing
+    clickSound.play(); // Play the sound effect
+    if (isPlaying) {
+        player.pauseVideo();
+        stopVinyl();
+        stopArm();
+        playPauseButton.textContent = 'Play';
+    } else {
+        player.playVideo();
+        startVinyl();
+        moveArm(); // Move arm onto the vinyl
+        playPauseButton.textContent = 'Pause';
+    }
+    isPlaying = !isPlaying;
 }
 
 function onPlayerError(event) {
@@ -48,7 +53,7 @@ function stopArm() {
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 8s linear infinite'; // Adjust speed as needed
+    vinyl.style.animation = 'spin 3s linear infinite'; // Adjust speed as needed
 }
 
 function stopVinyl() {
