@@ -7,7 +7,7 @@ const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
 const equalizer = document.getElementById('equalizer');
 const bars = document.querySelectorAll('.bar');
-let audioContext, analyser, source, frequencyData;
+let audioContext, analyser, source, frequencyData, mediaElementSource, youtubeAudio;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -59,7 +59,7 @@ function stopArm() {
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 3s linear infinite'; // Adjust speed as needed
+    vinyl.style.animation = 'spin 7s linear infinite'; // Adjust speed as needed
 }
 
 function stopVinyl() {
@@ -71,18 +71,25 @@ function initializeAudioContext() {
     analyser = audioContext.createAnalyser();
     analyser.fftSize = 256;
     frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
+    // Create a hidden audio element
+    youtubeAudio = new Audio();
+    youtubeAudio.crossOrigin = 'anonymous';
+    youtubeAudio.src = `https://www.youtube.com/watch?v=R6_3OchvW_c`;
+
+    // Link the audio element to the Web Audio API
+    mediaElementSource = audioContext.createMediaElementSource(youtubeAudio);
+    mediaElementSource.connect(analyser);
+    analyser.connect(audioContext.destination);
 }
 
 function startEqualizer() {
-    if (player.getIframe()) {
-        source = audioContext.createMediaElementSource(player.getIframe());
-        source.connect(analyser);
-        analyser.connect(audioContext.destination);
-        animateEqualizer();
-    }
+    youtubeAudio.play();
+    animateEqualizer();
 }
 
 function stopEqualizer() {
+    youtubeAudio.pause();
     cancelAnimationFrame(animationId);
     bars.forEach(bar => bar.style.height = '50px'); // Reset bars height
 }
@@ -94,5 +101,5 @@ function animateEqualizer() {
         const barHeight = frequencyData[index] / 2; // Scale the bar height
         bar.style.height = `${barHeight}px`;
     });
-    animationId = requestAnimationFrame(animateEqual);
+    animationId = requestAnimationFrame(animateEqualizer);
 }
