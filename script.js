@@ -31,23 +31,16 @@ function handlePlayPause() {
     if (!isPlayerReady || isLocked) return;
 
     if (!soundPlayed) {
-        clickSound.play();
-
-        // Listen for the 'ended' event
-        clickSound.onended = function() {
-            startVideoPlayback();
-        };
-
-        soundPlayed = true;
-
-        // Lock interaction for 4 seconds
-        isLocked = true;
-        setTimeout(() => {
-            isLocked = false; // Unlock after 4 seconds
-        }, 4000);
-    } else {
-        startVideoPlayback(); // Only if the sound has already played
-    }
+    clickSound.play().then(() => {
+        // Start video playback after sound has played
+        startVideoPlayback();
+    }).catch(error => {
+        console.error("Playback failed:", error);
+    });
+    
+} else {
+    startVideoPlayback();
+}
 }
 
 function startVideoPlayback() {
