@@ -56,23 +56,18 @@ h1 {
 }
 
 .arm {
-    width: 12px; /* Thicker arm for detail */
-    height: 200px; /* Longer arm */
-    background: linear-gradient(to bottom, #ff007f, #ff3f8c); /* Gradient for detail */
+    width: 12px; /* Arm thickness */
+    height: 100px; /* Adjusted arm length */
+    background: linear-gradient(to bottom, #ff007f, #ff3f8c); /* Arm color */
     position: absolute;
-    left: 50px; /* Position at the left corner */
-    top: 50px; /* Position at the left corner */
-    transform: rotate(-45deg); /* Initial position */
-    transform-origin: 12px 188px; /* Pivot point at the left bottom */
+    left: 20px; /* Position it at the bottom left corner */
+    top: 200px; /* Adjust according to your design */
+    transform-origin: 6px 100px; /* Pivot point for rotation */
     transition: transform 0.5s ease; /* Smooth transition */
-    display: flex;
-    flex-direction: column; /* Ensure bend and head are vertical */
-    align-items: flex-start;
-    justify-content: center;
 }
 
 .arm.move {
-    transform: rotate(0deg); /* Adjust movement */
+    transform: rotate(-45deg); /* Angle of the arm when playing */
 }
 
 .arm .bend {
