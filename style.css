@@ -40,11 +40,19 @@ h1 {
     height: 280px;
     background-color: black;
     border-radius: 50%;
-    background-size: cover;
     position: absolute;
     top: 10px;
     left: 10px;
     animation: spin 0s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vinyl-center {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
 
 .arm {
