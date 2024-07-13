@@ -67,7 +67,7 @@ h1 {
 }
 
 .arm.move {
-    transform: rotate(-45deg); /* Angle of the arm when playing */
+    transform: rotate(45deg); /* Angle of the arm when playing */
 }
 
 .arm .bend {
