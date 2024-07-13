@@ -28,13 +28,12 @@ function onPlayerReady(event) {
 }
 
 function handlePlayPause() {
-      if (!isPlayerReady || isLocked) return;
+    if (!isPlayerReady || isLocked) return;
 
     if (!soundPlayed) {
         clickSound.play().then(() => {
-            // Wait for the click sound to finish before starting the video
+            // Ensure that the sound has finished before starting the video
             clickSound.onended = () => {
-               
                 startVideoPlayback();
             };
         }).catch(error => {
@@ -49,31 +48,29 @@ function handlePlayPause() {
             isLocked = false; // Unlock after 4 seconds
         }, 4000);
     } else {
-        startVideoPlayback(); // Only if the sound has already played
+        startVideoPlayback(); // If the sound has already played
     }
-    
-      
 }
 
 function startVideoPlayback() {
+    console.log("Attempting to start video playback...");
+    if (isPlaying) {
+        player.pauseVideo();
+        stopVinyl();
+        stopArm();
+        playPauseButton.textContent = 'Play';
+    } else {
+        player.playVideo().then(() => {
+            alert("Video playback started.");
+        }).catch(err => {
+            alert("Video playback failed: ", err);
+        });
+        startVinyl();
+        moveArm();
+        playPauseButton.textContent = 'Pause';
+    }
 
-     player.playVideo();
-    
-    // if (isPlaying) {
-    //     player.pauseVideo();
-    //     stopVinyl();
-    //     stopArm();
-    //     playPauseButton.textContent = 'Play';
-    // } else {
-        
-    //     startVinyl();
-    //     moveArm();
-    //     playPauseButton.textContent = 'Pause';
-       
-    //     player.playVideo();
-    // }
-    
-     isPlaying = !isPlaying; // Toggle playing state
+    isPlaying = !isPlaying; // Toggle playing state
 }
 
 function handleVolumeChange() {
