@@ -19,7 +19,7 @@ function logMessage(message) {
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '0',
+        height: '10',
         width: '0',
         videoId: 'R6_3OchvW_c',
         events: {
