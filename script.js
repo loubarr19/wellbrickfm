@@ -1,5 +1,6 @@
 let player;
 let isPlaying = false;
+let firstPlay = true;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -31,6 +32,19 @@ function togglePlayPause() {
     if (isPlaying) {
         player.pauseVideo();
     } else {
-        player.playVideo();
+        if (firstPlay) {
+            playIntroAudio();
+        } else {
+            player.playVideo();
+        }
     }
+}
+
+function playIntroAudio() {
+    const introAudio = document.getElementById('introAudio');
+    introAudio.play();
+    introAudio.onended = () => {
+        player.playVideo();
+        firstPlay = false;
+    };
 }
