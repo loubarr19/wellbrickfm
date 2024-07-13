@@ -50,8 +50,8 @@ h1 {
 }
 
 .vinyl-center {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
 }
 
@@ -60,7 +60,7 @@ h1 {
     height: 200px; /* Longer arm */
     background: linear-gradient(to bottom, #ff007f, #ff3f8c); /* Gradient for detail */
     position: absolute;
-    left: 20px; /* Position at the left corner */
+    left: 50px; /* Position at the left corner */
     top: 50px; /* Position at the left corner */
     transform: rotate(-45deg); /* Initial position */
     transform-origin: 12px 188px; /* Pivot point at the left bottom */
@@ -96,8 +96,8 @@ h1 {
     background: #ff007f;
     border-radius: 50%;
     position: absolute;
-    left: 10px; /* Adjust as necessary */
-    top: 230px; /* Adjust as necessary */
+    left: 40px; /* Adjust as necessary */
+    top: 220px; /* Adjust as necessary */
 }
 
 @keyframes spin {
@@ -118,10 +118,12 @@ button {
     border: none;
     color: white;
     transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
 }
 
 button:hover {
     background-color: #e6007a; /* Darker shade on hover */
     transform: scale(1.1); /* Slight scale up on hover */
 }
+
 
