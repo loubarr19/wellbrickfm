@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELLBRICK FM 24/7</title>
-    <link rel="stylesheet" href="style.css">
+    <title>YouTube Video Control</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #player {
+            width: 560px;
+            height: 315px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>WELLBRICK FM 24/7</h1>
-        <div class="record-player">
-            <div id="vinyl" class="vinyl">
-                <img src="https://github.com/loubarr19/wellbrickfm/blob/7aa227604b7e56a797d349a808a4a8d13e999087/IGlogo.png?raw=true" alt="Vinyl">
-            </div>
-            <div id="arm" class="arm"></div>
-        </div>
-        <button id="playPauseButton" class="play-button">Play</button>
-        <div id="log"></div>
-        <audio id="clickSound" src="https://raw.githubusercontent.com/loubarr19/wellbrickfm/main/introfm.mp3"></audio>
-        <input type="range" id="volumeSlider" min="0" max="100" value="50">
-        <div id="player"></div>
-    </div>
+    <div id="player"></div>
+    <button id="playPauseBtn">Play</button>
+
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
