@@ -6,6 +6,7 @@ const vinyl = document.getElementById('vinyl');
 const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
 let soundPlayed = false;
+let isLocked = false; // Interaction lock
 const volumeSlider = document.getElementById('volumeSlider');
 
 function onYouTubeIframeAPIReady() {
@@ -27,7 +28,7 @@ function onPlayerReady(event) {
 }
 
 function handlePlayPause() {
-    if (!isPlayerReady) return;
+    if (!isPlayerReady || isLocked) return;
 
     if (!soundPlayed) {
         clickSound.play().then(() => {
@@ -39,7 +40,11 @@ function handlePlayPause() {
         
         soundPlayed = true;
 
-        
+        // Lock interaction for 4 seconds
+        isLocked = true;
+        setTimeout(() => {
+            isLocked = false; // Unlock after 4 seconds
+        }, 4000);
     } else {
         startVideoPlayback(); // Only if the sound has already played
     }
