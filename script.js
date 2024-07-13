@@ -30,8 +30,14 @@ function onPlayerReady(event) {
 function handlePlayPause() {
     if (!isPlayerReady || isLocked) return;
 
-    while (!soundPlayed && isLocked) {
+    if (!soundPlayed) {
         clickSound.play();
+
+        // Listen for the 'ended' event
+        clickSound.onended = function() {
+            startVideoPlayback();
+        };
+
         soundPlayed = true;
 
         // Lock interaction for 4 seconds
@@ -39,21 +45,24 @@ function handlePlayPause() {
         setTimeout(() => {
             isLocked = false; // Unlock after 4 seconds
         }, 4000);
-    } 
-        // Only play/pause video if not locked
-        if (isPlaying) {
-            player.pauseVideo();
-            stopVinyl();
-            stopArm();
-            playPauseButton.textContent = 'Play';
-        } else {
-            player.playVideo();
-            startVinyl();
-            moveArm();
-            playPauseButton.textContent = 'Pause';
-        }
-    
+    } else {
+        startVideoPlayback(); // Only if the sound has already played
+    }
+}
 
+function startVideoPlayback() {
+    if (isPlaying) {
+        player.pauseVideo();
+        stopVinyl();
+        stopArm();
+        playPauseButton.textContent = 'Play';
+    } else {
+        player.playVideo();
+        startVinyl();
+        moveArm();
+        playPauseButton.textContent = 'Pause';
+    }
+    
     isPlaying = !isPlaying; // Toggle playing state
 }
 
@@ -83,4 +92,5 @@ function startVinyl() {
 function stopVinyl() {
     vinyl.style.animation = 'none';
 }
+
 
