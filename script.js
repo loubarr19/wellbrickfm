@@ -79,8 +79,9 @@ function startVideoPlayback() {
         startVinyl();
         moveArm();
         playPauseButton.textContent = 'Pause';
+        alert("ed.");
     }
-
+alert("Vi started.");
     isPlaying = !isPlaying; // Toggle playing state
 }
 
