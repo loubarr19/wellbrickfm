@@ -56,21 +56,24 @@ function handlePlayPause() {
 }
 
 function startVideoPlayback() {
-    if (isPlaying) {
-        player.pauseVideo();
-        stopVinyl();
-        stopArm();
-        playPauseButton.textContent = 'Play';
-    } else {
-        
-        startVinyl();
-        moveArm();
-        playPauseButton.textContent = 'Pause';
-       
-        player.playVideo();
-    }
+
+     player.playVideo();
     
-    isPlaying = !isPlaying; // Toggle playing state
+    // if (isPlaying) {
+    //     player.pauseVideo();
+    //     stopVinyl();
+    //     stopArm();
+    //     playPauseButton.textContent = 'Play';
+    // } else {
+        
+    //     startVinyl();
+    //     moveArm();
+    //     playPauseButton.textContent = 'Pause';
+       
+    //     player.playVideo();
+    // }
+    
+     isPlaying = !isPlaying; // Toggle playing state
 }
 
 function handleVolumeChange() {
