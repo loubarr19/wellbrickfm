@@ -6,7 +6,7 @@ const vinyl = document.getElementById('vinyl');
 const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
 let soundPlayed = false;
-let isLocked = false;
+let isLocked = false; // Interaction lock
 const volumeSlider = document.getElementById('volumeSlider');
 
 function onYouTubeIframeAPIReady() {
@@ -39,21 +39,22 @@ function handlePlayPause() {
         setTimeout(() => {
             isLocked = false; // Unlock after 4 seconds
         }, 4000);
-    }
-
-    if (isPlaying) {
-        player.pauseVideo();
-        stopVinyl();
-        stopArm();
-        playPauseButton.textContent = 'Play';
     } else {
-        player.playVideo();
-        startVinyl();
-        moveArm();
-        playPauseButton.textContent = 'Pause';
+        // Only play/pause video if not locked
+        if (isPlaying) {
+            player.pauseVideo();
+            stopVinyl();
+            stopArm();
+            playPauseButton.textContent = 'Play';
+        } else {
+            player.playVideo();
+            startVinyl();
+            moveArm();
+            playPauseButton.textContent = 'Pause';
+        }
     }
 
-    isPlaying = !isPlaying;
+    isPlaying = !isPlaying; // Toggle playing state
 }
 
 function handleVolumeChange() {
