@@ -28,7 +28,9 @@ function onPlayerReady(event) {
 }
 
 function handlePlayPause() {
-    if (!isPlayerReady || isLocked) return;
+    startVideoPlayback();
+    
+        if (!isPlayerReady || isLocked) return;
 
     if (!soundPlayed) {
         clickSound.play().then(() => {
