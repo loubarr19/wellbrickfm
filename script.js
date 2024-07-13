@@ -6,7 +6,7 @@ const vinyl = document.getElementById('vinyl');
 const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
 let soundPlayed = false;
-let isLocked = false; // Interaction lock
+let isLocked = false;
 const volumeSlider = document.getElementById('volumeSlider');
 
 function logMessage(message) {
@@ -19,8 +19,8 @@ function logMessage(message) {
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '100',
-        width: '100',
+        height: '0',
+        width: '0',
         videoId: 'R6_3OchvW_c',
         events: {
             'onReady': onPlayerReady,
@@ -58,31 +58,24 @@ function handlePlayPause() {
 }
 
 function startVideoPlayback() {
-    alert("Attempting to start video playback...");
-    logMessage("Attempting to start video playback...");
-
     if (isPlaying) {
         player.pauseVideo();
         stopVinyl();
         stopArm();
         playPauseButton.textContent = 'Play';
-        alert("Paused video playback.");
         logMessage("Paused video playback.");
     } else {
         player.playVideo().then(() => {
-            alert("Video playback started.");
             logMessage("Video playback started.");
         }).catch(err => {
-            alert("Video playback failed: " + err);
             logMessage("Video playback failed: " + err);
         });
         startVinyl();
         moveArm();
         playPauseButton.textContent = 'Pause';
-        alert("ed.");
     }
-alert("Vi started.");
-    isPlaying = !isPlaying; // Toggle playing state
+
+    isPlaying = !isPlaying;
 }
 
 function handleVolumeChange() {
@@ -94,7 +87,6 @@ function handleVolumeChange() {
 }
 
 function onPlayerError(event) {
-    console.error("Error: " + event.data);
     logMessage("Error: " + event.data);
 }
 
@@ -113,3 +105,7 @@ function startVinyl() {
 function stopVinyl() {
     vinyl.style.animation = 'none';
 }
+
+clickSound.addEventListener('canplaythrough', () => {
+    logMessage("Click sound can be played through.");
+});
