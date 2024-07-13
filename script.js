@@ -16,8 +16,8 @@ clickSound.addEventListener('canplaythrough', () => {
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '0',
-        width: '0',
+        height: '100',
+        width: '100',
         videoId: 'R6_3OchvW_c',
         events: {
             'onReady': onPlayerReady,
