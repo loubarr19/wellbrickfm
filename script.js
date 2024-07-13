@@ -31,16 +31,23 @@ function handlePlayPause() {
     if (!isPlayerReady || isLocked) return;
 
     if (!soundPlayed) {
-    clickSound.play().then(() => {
-        // Start video playback after sound has played
-        startVideoPlayback();
-    }).catch(error => {
-         alert("Playback failed: " + error.message); // Show alert on failure
-    });
-    
-} else {
-    startVideoPlayback();
-}
+        clickSound.play().then(() => {
+            // Start video playback after sound has played
+            startVideoPlayback();
+        }).catch(error => {
+            alert("Playback failed: " + error.message); // Show alert on failure
+        });
+        
+        soundPlayed = true;
+
+        // Lock interaction for 4 seconds
+        isLocked = true;
+        setTimeout(() => {
+            isLocked = false; // Unlock after 4 seconds
+        }, 4000);
+    } else {
+        startVideoPlayback(); // Only if the sound has already played
+    }
 }
 
 function startVideoPlayback() {
