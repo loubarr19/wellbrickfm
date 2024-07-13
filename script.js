@@ -35,14 +35,14 @@ function onPlayerReady(event) {
 function handlePlayPause() {
     if (!isPlayerReady || isLocked) return;
 
-    // if (!soundPlayed) {
-    //     clickSound.play().then(() => {
-    //         startVideoPlayback();
-    //     }).catch(error => {
-    //         alert("Playback failed: " + error.message);
-    //     });
+    if (!soundPlayed) {
+        clickSound.play().then(() => {
+            startVideoPlayback();
+        }).catch(error => {
+            alert("Playback failed: " + error.message);
+        });
 
-    //     soundPlayed = true;
+        soundPlayed = true;
 
         // Lock interaction for 4 seconds
         isLocked = trie;
