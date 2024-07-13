@@ -7,7 +7,7 @@ const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
 const equalizer = document.getElementById('equalizer');
 const bars = document.querySelectorAll('.bar');
-let audioContext, analyser, source, frequencyData, mediaElementSource, youtubeAudio;
+let audioContext, analyser, frequencyData, source, animationId;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -72,29 +72,23 @@ function initializeAudioContext() {
     analyser.fftSize = 256;
     frequencyData = new Uint8Array(analyser.frequencyBinCount);
 
-    // Create a hidden audio element
-    youtubeAudio = new Audio();
-    youtubeAudio.crossOrigin = 'anonymous';
-    youtubeAudio.src = `https://www.youtube.com/watch?v=R6_3OchvW_c`;
-
-    // Link the audio element to the Web Audio API
-    mediaElementSource = audioContext.createMediaElementSource(youtubeAudio);
-    mediaElementSource.connect(analyser);
+    // Create a media element source from the YouTube video
+    source = audioContext.createMediaElementSource(player.getIframe());
+    source.connect(analyser);
     analyser.connect(audioContext.destination);
 }
 
 function startEqualizer() {
-    youtubeAudio.play();
-    animateEqualizer();
+    if (source) {
+        animateEqualizer();
+    }
 }
 
 function stopEqualizer() {
-    youtubeAudio.pause();
     cancelAnimationFrame(animationId);
     bars.forEach(bar => bar.style.height = '50px'); // Reset bars height
 }
 
-let animationId;
 function animateEqualizer() {
     analyser.getByteFrequencyData(frequencyData);
     bars.forEach((bar, index) => {
