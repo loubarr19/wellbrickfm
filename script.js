@@ -30,29 +30,7 @@ function onPlayerReady(event) {
 function handlePlayPause() {
     startVideoPlayback();
     
-        if (!isPlayerReady || isLocked) return;
-
-    if (!soundPlayed) {
-        clickSound.play().then(() => {
-            // Wait for the click sound to finish before starting the video
-            clickSound.onended = () => {
-               
-                startVideoPlayback();
-            };
-        }).catch(error => {
-            alert("Playback failed: " + error.message);
-        });
-
-        soundPlayed = true;
-
-        // Lock interaction for 4 seconds
-        isLocked = true;
-        setTimeout(() => {
-            isLocked = false; // Unlock after 4 seconds
-        }, 4000);
-    } else {
-        startVideoPlayback(); // Only if the sound has already played
-    }
+      
 }
 
 function startVideoPlayback() {
