@@ -45,10 +45,10 @@ function handlePlayPause() {
         soundPlayed = true;
 
         // Lock interaction for 4 seconds
-        isLocked = true;
-        setTimeout(() => {
-            isLocked = false; // Unlock after 4 seconds
-        }, 4000);
+        isLocked = false;
+        // setTimeout(() => {
+        //     isLocked = false; // Unlock after 4 seconds
+        // }, 4000);
     } else {
         startVideoPlayback(); // Only if the sound has already played
     }
