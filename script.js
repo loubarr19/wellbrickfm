@@ -5,8 +5,7 @@ const arm = document.getElementById('arm');
 const vinyl = document.getElementById('vinyl');
 const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
-const equalizer = document.getElementById('equalizer');
-const bars = document.querySelectorAll('.bar');
+let soundPlayed = false; // New variable to track if sound has been played
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -28,21 +27,22 @@ function onPlayerReady(event) {
 function handlePlayPause() {
     if (!isPlayerReady) return;
 
-    // Play the click sound
-    clickSound.play();
+     // Play the click sound only on the first play
+    if (!soundPlayed) {
+        clickSound.play();
+        soundPlayed = true; // Set to true to prevent replaying
+    }
 
     // Play the video or pause based on the current state
     if (isPlaying) {
         player.pauseVideo();
         stopVinyl();
         stopArm();
-        stopEqualizer();
         playPauseButton.textContent = 'Play';
     } else {
         player.playVideo();
         startVinyl();
         moveArm();
-        startEqualizer();
         playPauseButton.textContent = 'Pause';
     }
 
