@@ -57,13 +57,13 @@ h1 {
 
 .arm {
     width: 12px; /* Thicker arm for detail */
-    height: 120px; /* Longer arm */
+    height: 200px; /* Longer arm */
     background: linear-gradient(to bottom, #ff007f, #ff3f8c); /* Gradient for detail */
     position: absolute;
-    left: 50%; /* Position relative to turntable */
-    top: 30%; /* Position relative to turntable */
-    transform: rotate(0deg);
-    transform-origin: left bottom; /* Pivot point at the left bottom */
+    left: 20px; /* Position at the left corner */
+    top: 50px; /* Position at the left corner */
+    transform: rotate(-45deg); /* Initial position */
+    transform-origin: 12px 188px; /* Pivot point at the left bottom */
     transition: transform 0.5s ease; /* Smooth transition */
     display: flex;
     flex-direction: column; /* Ensure bend and head are vertical */
@@ -72,7 +72,7 @@ h1 {
 }
 
 .arm.move {
-    transform: rotate(-30deg) translateX(20px); /* Adjust movement */
+    transform: rotate(0deg); /* Adjust movement */
 }
 
 .arm .bend {
@@ -96,8 +96,8 @@ h1 {
     background: #ff007f;
     border-radius: 50%;
     position: absolute;
-    left: 50%; /* Position relative to turntable */
-    top: 30%; /* Position relative to turntable */
+    left: 10px; /* Adjust as necessary */
+    top: 230px; /* Adjust as necessary */
 }
 
 @keyframes spin {
