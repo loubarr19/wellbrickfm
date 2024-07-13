@@ -19,7 +19,7 @@ function logMessage(message) {
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '10',
+        height: '0',
         width: '0',
         videoId: 'R6_3OchvW_c',
         events: {
@@ -33,6 +33,7 @@ function onPlayerReady(event) {
     isPlayerReady = true;
     playPauseButton.addEventListener('click', handlePlayPause);
     volumeSlider.addEventListener('input', handleVolumeChange);
+    logMessage("Player is ready.");
 }
 
 function handlePlayPause() {
@@ -43,7 +44,9 @@ function handlePlayPause() {
             clickSound.onended = () => {
                 setTimeout(startVideoPlayback, 4000);
             };
+            logMessage("Click sound played.");
         }).catch(error => {
+            logMessage("Playback failed: " + error.message);
             alert("Playback failed: " + error.message);
         });
 
