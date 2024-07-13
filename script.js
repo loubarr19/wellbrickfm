@@ -7,7 +7,6 @@ const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
 const equalizer = document.getElementById('equalizer');
 const bars = document.querySelectorAll('.bar');
-let animationId;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -27,8 +26,12 @@ function onPlayerReady(event) {
 }
 
 function handlePlayPause() {
-    if (!isPlayerReady) return; // If the player is not ready, do nothing
-    clickSound.play(); // Play the sound effect
+    if (!isPlayerReady) return;
+
+    // Play the click sound
+    clickSound.play();
+
+    // Play the video or pause based on the current state
     if (isPlaying) {
         player.pauseVideo();
         stopVinyl();
@@ -38,10 +41,11 @@ function handlePlayPause() {
     } else {
         player.playVideo();
         startVinyl();
-        moveArm(); // Move arm onto the vinyl
+        moveArm();
         startEqualizer();
         playPauseButton.textContent = 'Pause';
     }
+
     isPlaying = !isPlaying;
 }
 
@@ -50,15 +54,15 @@ function onPlayerError(event) {
 }
 
 function moveArm() {
-    arm.classList.add('move'); // Add the move class to animate the arm
+    arm.classList.add('move'); // Animate the arm to the vinyl
 }
 
 function stopArm() {
-    arm.classList.remove('move'); // Remove the move class to reset
+    arm.classList.remove('move'); // Reset the arm position
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 7s linear infinite'; // Adjust speed as needed
+    vinyl.style.animation = 'spin 3s linear infinite'; // Vinyl spinning
 }
 
 function stopVinyl() {
@@ -70,14 +74,6 @@ function startEqualizer() {
 }
 
 function stopEqualizer() {
-    cancelAnimationFrame(animationId);
-    bars.forEach(bar => bar.style.height = '50px'); // Reset bars height
+    bars.forEach(bar => bar.style.height = '50px'); // Reset equalizer bars
 }
 
-function animateEqualizer() {
-    bars.forEach((bar, index) => {
-        const barHeight = Math.random() * 200 + 50; // Generate random height for bars
-        bar.style.height = `${barHeight}px`;
-    });
-    animationId = requestAnimationFrame(animateEqualizer);
-}
