@@ -35,7 +35,7 @@ function handlePlayPause() {
         // Start video playback after sound has played
         startVideoPlayback();
     }).catch(error => {
-        console.error("Playback failed:", error);
+         alert("Playback failed: " + error.message); // Show alert on failure
     });
     
 } else {
