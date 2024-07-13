@@ -9,11 +9,6 @@ let soundPlayed = false;
 let isLocked = false; // Interaction lock
 const volumeSlider = document.getElementById('volumeSlider');
 
-// Add canplaythrough event listener
-clickSound.addEventListener('canplaythrough', () => {
-    alert("Click sound is ready to play.");
-});
-
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '0',
@@ -39,7 +34,7 @@ function handlePlayPause() {
         clickSound.play().then(() => {
             // Wait for the click sound to finish before starting the video
             clickSound.onended = () => {
-                alert("GO");
+               
                 startVideoPlayback();
             };
         }).catch(error => {
@@ -69,6 +64,7 @@ function startVideoPlayback() {
         startVinyl();
         moveArm();
         playPauseButton.textContent = 'Pause';
+        player.playVideo();
     }
     
     isPlaying = !isPlaying; // Toggle playing state
@@ -94,7 +90,7 @@ function stopArm() {
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 3s linear infinite';
+    vinyl.style.animation = 'spin 7s linear infinite';
 }
 
 function stopVinyl() {
