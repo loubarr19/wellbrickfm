@@ -9,6 +9,11 @@ let soundPlayed = false;
 let isLocked = false; // Interaction lock
 const volumeSlider = document.getElementById('volumeSlider');
 
+// Add canplaythrough event listener
+clickSound.addEventListener('canplaythrough', () => {
+    alert("Click sound is ready to play.");
+});
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '0',
@@ -32,12 +37,11 @@ function handlePlayPause() {
 
     if (!soundPlayed) {
         clickSound.play().then(() => {
-            // Start video playback after sound has played
             startVideoPlayback();
         }).catch(error => {
-            alert("Playback failed: " + error.message); // Show alert on failure
+            alert("Playback failed: " + error.message);
         });
-        
+
         soundPlayed = true;
 
         // Lock interaction for 4 seconds
@@ -92,5 +96,4 @@ function startVinyl() {
 function stopVinyl() {
     vinyl.style.animation = 'none';
 }
-
 
