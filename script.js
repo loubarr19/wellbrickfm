@@ -7,7 +7,7 @@ const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
 const equalizer = document.getElementById('equalizer');
 const bars = document.querySelectorAll('.bar');
-let audioContext, analyser, frequencyData, source, animationId;
+let animationId;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -24,7 +24,6 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     isPlayerReady = true;
     playPauseButton.addEventListener('click', handlePlayPause);
-    initializeAudioContext();
 }
 
 function handlePlayPause() {
@@ -66,22 +65,8 @@ function stopVinyl() {
     vinyl.style.animation = 'none';
 }
 
-function initializeAudioContext() {
-    audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    analyser = audioContext.createAnalyser();
-    analyser.fftSize = 256;
-    frequencyData = new Uint8Array(analyser.frequencyBinCount);
-
-    // Create a media element source from the YouTube video
-    source = audioContext.createMediaElementSource(player.getIframe());
-    source.connect(analyser);
-    analyser.connect(audioContext.destination);
-}
-
 function startEqualizer() {
-    if (source) {
-        animateEqualizer();
-    }
+    animateEqualizer();
 }
 
 function stopEqualizer() {
@@ -90,9 +75,8 @@ function stopEqualizer() {
 }
 
 function animateEqualizer() {
-    analyser.getByteFrequencyData(frequencyData);
     bars.forEach((bar, index) => {
-        const barHeight = frequencyData[index] / 2; // Scale the bar height
+        const barHeight = Math.random() * 200 + 50; // Generate random height for bars
         bar.style.height = `${barHeight}px`;
     });
     animationId = requestAnimationFrame(animateEqualizer);
