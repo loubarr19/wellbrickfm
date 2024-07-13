@@ -94,4 +94,5 @@ function animateEqualizer() {
         const barHeight = frequencyData[index] / 2; // Scale the bar height
         bar.style.height = `${barHeight}px`;
     });
-    animationId = requestAnimationFrame(animateEqual
+    animationId = requestAnimationFrame(animateEqual):
+}
