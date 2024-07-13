@@ -9,6 +9,11 @@ let soundPlayed = false;
 let isLocked = false; // Interaction lock
 const volumeSlider = document.getElementById('volumeSlider');
 
+// Add canplaythrough event listener
+clickSound.addEventListener('canplaythrough', () => {
+    console.log('Click sound is ready to play.');
+});
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '0',
@@ -32,10 +37,7 @@ function handlePlayPause() {
 
     if (!soundPlayed) {
         clickSound.play().then(() => {
-            // Ensure that the sound has finished before starting the video
-            clickSound.onended = () => {
-                startVideoPlayback();
-            };
+            startVideoPlayback();
         }).catch(error => {
             alert("Playback failed: " + error.message);
         });
@@ -48,28 +50,23 @@ function handlePlayPause() {
             isLocked = false; // Unlock after 4 seconds
         }, 4000);
     } else {
-        startVideoPlayback(); // If the sound has already played
+        startVideoPlayback(); // Only if the sound has already played
     }
 }
 
 function startVideoPlayback() {
-    console.log("Attempting to start video playback...");
     if (isPlaying) {
         player.pauseVideo();
         stopVinyl();
         stopArm();
         playPauseButton.textContent = 'Play';
     } else {
-        player.playVideo().then(() => {
-            alert("Video playback started.");
-        }).catch(err => {
-            alert("Video playback failed: ", err);
-        });
+        player.playVideo();
         startVinyl();
         moveArm();
         playPauseButton.textContent = 'Pause';
     }
-
+    
     isPlaying = !isPlaying; // Toggle playing state
 }
 
@@ -93,7 +90,7 @@ function stopArm() {
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 7s linear infinite';
+    vinyl.style.animation = 'spin 3s linear infinite';
 }
 
 function stopVinyl() {
