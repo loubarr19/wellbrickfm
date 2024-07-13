@@ -3,31 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Video Control</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        #player {
-            width: 560px;
-            height: 315px;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-    </style>
+    <title>Retro Video Player</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="player"></div>
-    <button id="playPauseBtn">Play</button>
-    <audio id="introAudio" src="https://raw.githubusercontent.com/loubarr19/wellbrickfm/main/introfm.mp3" preload="auto"></audio>
+    <div class="computer-frame">
+        <div class="screen">
+            <div id="player"></div>
+        </div>
+        <div class="controls">
+            <button id="playPauseBtn">Play</button>
+        </div>
+    </div>
+    <audio id="introAudio" src="https://raw.githubusercontent.com/yourusername/yourrepo/main/youraudiofile.mp3" preload="auto"></audio>
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
