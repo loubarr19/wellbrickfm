@@ -37,8 +37,11 @@ function handlePlayPause() {
 
     if (!soundPlayed) {
         clickSound.play().then(() => {
-            alert("CGO.");
-            startVideoPlayback();
+            // Wait for the click sound to finish before starting the video
+            clickSound.onended = () => {
+                alert("GO");
+                startVideoPlayback();
+            };
         }).catch(error => {
             alert("Playback failed: " + error.message);
         });
