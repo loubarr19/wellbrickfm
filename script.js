@@ -30,7 +30,7 @@ function onPlayerReady(event) {
 function handlePlayPause() {
     if (!isPlayerReady || isLocked) return;
 
-    if (!soundPlayed) {
+    while (!soundPlayed && isLocked) {
         clickSound.play();
         soundPlayed = true;
 
@@ -39,7 +39,7 @@ function handlePlayPause() {
         setTimeout(() => {
             isLocked = false; // Unlock after 4 seconds
         }, 4000);
-    } else {
+    } 
         // Only play/pause video if not locked
         if (isPlaying) {
             player.pauseVideo();
@@ -52,7 +52,7 @@ function handlePlayPause() {
             moveArm();
             playPauseButton.textContent = 'Pause';
         }
-    }
+    
 
     isPlaying = !isPlaying; // Toggle playing state
 }
