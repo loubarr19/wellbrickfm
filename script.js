@@ -24,7 +24,7 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     isPlayerReady = true;
     playPauseButton.addEventListener('click', handlePlayPause);
-    volumeSlider.addEventListener('input', handleVolumeChange); // Add event listener for volume control
+    volumeSlider.addEventListener('input', handleVolumeChange);
 }
 
 function handlePlayPause() {
@@ -33,9 +33,11 @@ function handlePlayPause() {
     if (!soundPlayed) {
         clickSound.play();
         soundPlayed = true;
+
+        // Lock interaction for 4 seconds
         isLocked = true;
         setTimeout(() => {
-            isLocked = false;
+            isLocked = false; // Unlock after 4 seconds
         }, 4000);
     }
 
@@ -43,13 +45,11 @@ function handlePlayPause() {
         player.pauseVideo();
         stopVinyl();
         stopArm();
-        stopEqualizer();
         playPauseButton.textContent = 'Play';
     } else {
         player.playVideo();
         startVinyl();
         moveArm();
-        startEqualizer();
         playPauseButton.textContent = 'Pause';
     }
 
@@ -57,8 +57,10 @@ function handlePlayPause() {
 }
 
 function handleVolumeChange() {
-    const volume = volumeSlider.value / 100; // Get volume between 0 and 1
-    player.setVolume(volume * 100); // YouTube API requires volume as a percentage
+    if (isPlayerReady) {
+        const volume = volumeSlider.value; // Get volume as percentage
+        player.setVolume(volume); // Set YouTube player volume (0-100)
+    }
 }
 
 function onPlayerError(event) {
