@@ -121,4 +121,12 @@ button:hover {
     transform: scale(1.1); /* Slight scale up on hover */
 }
 
+.volume-control {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#volumeSlider {
+    width: 200px; /* Adjust width as needed */
+}
 
