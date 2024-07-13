@@ -1,156 +1,92 @@
 body {
-    background: linear-gradient(135deg, #8a2be2, #00ffff);
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, purple, blue);
+    color: white;
     text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 3rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    position: relative;
+    width: 300px;
+    height: 300px;
 }
 
 .record-player {
     position: relative;
-    border: 5px solid #ff007f; /* Neon pink border */
-    padding: 20px;
-    border-radius: 20px;
-    background: linear-gradient(145deg, #3f3f3f, #2a2a2a);
-    box-shadow: 20px 20px 60px #111, -20px -20px 60px #444;
-}
-
-.turntable {
-    width: 300px;
-    height: 300px;
-    border: 10px solid #555;
-    border-radius: 50%;
-    background-color: #333;
-    position: relative;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
 }
 
 .vinyl {
-    width: 280px;
-    height: 280px;
-    background-color: black;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    animation: spin 0s linear infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
-.vinyl-center {
-    width: 120px;
-    height: 120px;
+.vinyl img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 
 .arm {
-    width: 12px; /* Arm thickness */
-    height: 100px; /* Adjusted arm length */
-    background: linear-gradient(to bottom, #ff007f, #ff3f8c); /* Arm color */
+    width: 150px;
+    height: 10px;
+    background: silver;
     position: absolute;
-    left: 20px; /* Position it at the bottom left corner */
-    top: 200px; /* Adjust according to your design */
-    transform-origin: 6px 100px; /* Pivot point for rotation */
-    transition: transform 0.5s ease; /* Smooth transition */
+    bottom: 70px;
+    left: 50px;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-in-out;
 }
 
 .arm.move {
-    transform: rotate(45deg); /* Angle of the arm when playing */
+    transform: rotate(-30deg);
 }
 
-.arm .bend {
-    width: 12px;
-    height: 50px;
-    background: inherit;
-    transform: rotate(45deg); /* Create the bend */
-    transform-origin: top left;
-}
-
-.arm .head {
-    width: 12px;
-    height: 20px;
-    background: inherit;
-    border-radius: 50%;
-}
-
-.pivot {
-    width: 20px;
-    height: 20px;
-    background: #ff007f;
-    border-radius: 50%;
+.play-button {
     position: absolute;
-    left: 40px; /* Adjust as necessary */
-    top: 220px; /* Adjust as necessary */
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-button {
-    position: absolute;
-    bottom: 20px; /* Adjust as necessary */
-    right: 20px; /* Adjust as necessary */
-    width: 60px; /* Set width for roundness */
-    height: 60px; /* Set height for roundness */
-    border-radius: 50%; /* Makes the button round */
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #ff007f; /* Neon pink button */
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 50%;
+    background: #ff4081;
     border: none;
     color: white;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-button:hover {
-    background-color: #e6007a; /* Darker shade on hover */
-    transform: scale(1.1); /* Slight scale up on hover */
+#log {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+    max-height: 100px;
+    overflow: auto;
 }
 
-
-.volume-control {
-    margin-top: 40px; /* Increase the top margin for more gap */
-    text-align: center;
+input[type="range"] {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+    background: #ff4081;
 }
 
-#volumeSlider {
-    width: 250px; /* Make the slider wider */
-    height: 10px; /* Adjust height for better visibility */
-    -webkit-appearance: none; /* Remove default styling */
-    appearance: none; /* Remove default styling */
-    background: #ff007f; /* Match the color of the play button */
-    border-radius: 5px; /* Rounded edges */
-    outline: none; /* Remove outline on focus */
-}
-
-#volumeSlider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Remove default thumb styling */
-    appearance: none; /* Remove default thumb styling */
-    width: 20px; /* Width of the thumb */
-    height: 20px; /* Height of the thumb */
-    background: #fff; /* Thumb color */
-    border-radius: 50%; /* Round thumb */
-    cursor: pointer; /* Change cursor to pointer */
-}
-
-#volumeSlider::-moz-range-thumb {
-    width: 20px; /* Width of the thumb */
-    height: 20px; /* Height of the thumb */
-    background: #fff; /* Thumb color */
-    border-radius: 50%; /* Round thumb */
-    cursor: pointer; /* Change cursor to pointer */
-}
