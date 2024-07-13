@@ -31,6 +31,12 @@ function handlePlayPause() {
     if (!soundPlayed) {
         clickSound.play();
         soundPlayed = true; // Set to true to prevent replaying
+
+         // Lock interaction for 5 seconds
+        isLocked = true;
+        setTimeout(() => {
+            isLocked = false; // Unlock after 5 seconds
+        }, 5000); // 5 seconds
     }
 
     // Play the video or pause based on the current state
