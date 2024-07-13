@@ -5,13 +5,15 @@ const arm = document.getElementById('arm');
 const vinyl = document.getElementById('vinyl');
 const playPauseButton = document.getElementById('playPauseButton');
 const clickSound = document.getElementById('clickSound');
-let soundPlayed = false; // New variable to track if sound has been played
+let soundPlayed = false;
+let isLocked = false;
+const volumeSlider = document.getElementById('volumeSlider');
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '0',
         width: '0',
-        videoId: 'R6_3OchvW_c', // Your YouTube video ID
+        videoId: 'R6_3OchvW_c',
         events: {
             'onReady': onPlayerReady,
             'onError': onPlayerError
@@ -22,37 +24,41 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     isPlayerReady = true;
     playPauseButton.addEventListener('click', handlePlayPause);
+    volumeSlider.addEventListener('input', handleVolumeChange); // Add event listener for volume control
 }
 
 function handlePlayPause() {
-    if (!isPlayerReady) return;
+    if (!isPlayerReady || isLocked) return;
 
-     // Play the click sound only on the first play
     if (!soundPlayed) {
         clickSound.play();
-        soundPlayed = true; // Set to true to prevent replaying
-
-         // Lock interaction for 5 seconds
+        soundPlayed = true;
         isLocked = true;
         setTimeout(() => {
-            isLocked = false; // Unlock after 5 seconds
-        }, 5000); // 5 seconds
+            isLocked = false;
+        }, 4000);
     }
 
-    // Play the video or pause based on the current state
     if (isPlaying) {
         player.pauseVideo();
         stopVinyl();
         stopArm();
+        stopEqualizer();
         playPauseButton.textContent = 'Play';
     } else {
         player.playVideo();
         startVinyl();
         moveArm();
+        startEqualizer();
         playPauseButton.textContent = 'Pause';
     }
 
     isPlaying = !isPlaying;
+}
+
+function handleVolumeChange() {
+    const volume = volumeSlider.value / 100; // Get volume between 0 and 1
+    player.setVolume(volume * 100); // YouTube API requires volume as a percentage
 }
 
 function onPlayerError(event) {
@@ -60,26 +66,18 @@ function onPlayerError(event) {
 }
 
 function moveArm() {
-    arm.classList.add('move'); // Animate the arm to the vinyl
+    arm.classList.add('move');
 }
 
 function stopArm() {
-    arm.classList.remove('move'); // Reset the arm position
+    arm.classList.remove('move');
 }
 
 function startVinyl() {
-    vinyl.style.animation = 'spin 3s linear infinite'; // Vinyl spinning
+    vinyl.style.animation = 'spin 3s linear infinite';
 }
 
 function stopVinyl() {
     vinyl.style.animation = 'none';
-}
-
-function startEqualizer() {
-    animateEqualizer();
-}
-
-function stopEqualizer() {
-    bars.forEach(bar => bar.style.height = '50px'); // Reset equalizer bars
 }
 
