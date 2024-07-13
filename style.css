@@ -60,15 +60,43 @@ h1 {
     height: 120px; /* Longer arm */
     background: linear-gradient(to bottom, #ff007f, #ff3f8c); /* Gradient for detail */
     position: absolute;
-    left: 50%;
-    bottom: 70%;
+    left: -60px; /* Position at the left corner */
+    bottom: 50px;
     transform: rotate(0deg);
-    transform-origin: top;
+    transform-origin: left bottom; /* Pivot point at the left bottom */
     transition: transform 0.5s ease; /* Smooth transition */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .arm.move {
-    transform: rotate(-30deg) translateY(-50px); /* Adjust movement */
+    transform: rotate(-30deg) translateX(20px); /* Adjust movement */
+}
+
+.arm .bend {
+    width: 12px;
+    height: 50px;
+    background: inherit;
+    transform: rotate(45deg); /* Create the bend */
+    transform-origin: top left;
+}
+
+.arm .head {
+    width: 12px;
+    height: 20px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.pivot {
+    width: 20px;
+    height: 20px;
+    background: #ff007f;
+    border-radius: 50%;
+    position: absolute;
+    left: -70px; /* Adjust as necessary */
+    bottom: 40px; /* Adjust as necessary */
 }
 
 @keyframes spin {
