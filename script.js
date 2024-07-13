@@ -60,11 +60,11 @@ function startVideoPlayback() {
         stopArm();
         playPauseButton.textContent = 'Play';
     } else {
-        player.playVideo();
+        
         startVinyl();
         moveArm();
         playPauseButton.textContent = 'Pause';
-        player.pauseVideo();
+       
         player.playVideo();
     }
     
