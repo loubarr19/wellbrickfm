@@ -64,6 +64,7 @@ function startVideoPlayback() {
         startVinyl();
         moveArm();
         playPauseButton.textContent = 'Pause';
+        player.pauseVideo();
         player.playVideo();
     }
     
