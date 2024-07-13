@@ -37,6 +37,7 @@ function handlePlayPause() {
 
     if (!soundPlayed) {
         clickSound.play().then(() => {
+            alert("CGO.");
             startVideoPlayback();
         }).catch(error => {
             alert("Playback failed: " + error.message);
