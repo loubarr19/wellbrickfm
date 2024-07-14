@@ -18,14 +18,20 @@ function onPlayerReady(event) {
 }
 
 function togglePlayPause() {
+    const vinyl = document.getElementById('vinyl');
+    const liveBox = document.getElementById('liveBox');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    
     if (isPlaying) {
         player.pauseVideo();
         playPauseBtn.textContent = 'Play';
         vinyl.style.animationPlayState = 'paused'; // Pause spinning
+        liveBox.style.display = 'none'; // Hide LIVE box
     } else {
         player.playVideo();
         playPauseBtn.textContent = 'Pause';
         vinyl.style.animationPlayState = 'running'; // Resume spinning
+        liveBox.style.display = 'block'; // Show LIVE box
     }
     isPlaying = !isPlaying;
 }
