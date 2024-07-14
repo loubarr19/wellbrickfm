@@ -1,6 +1,7 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Initial gradient */
+    transition: background 0.5s; /* Smooth transition for background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,15 +25,16 @@ pre {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Soft shadow */
 }
 
-.banner {
-    width: 100%; /* Full width of the screen */
-    white-space: pre-wrap; /* Preserve whitespace and wrap lines */
-    overflow-wrap: break-word; /* Break long words to fit */
-    font-family: 'Courier New', Courier, monospace; /* Use a monospace font */
-    font-size: 2vw; /* Adjust font size based on viewport width */
-    margin: 0; /* Remove default margins */
-    padding: 10px; /* Add padding for spacing */
+.strobe {
+    animation: strobeEffect 0.2s infinite; /* Strobe effect */
+}
 
+@keyframes strobeEffect {
+    0% { background: #ff7e5f; }
+    25% { background: #feb47b; }
+    50% { background: #7f00ff; }
+    75% { background: #00d4ff; }
+    100% { background: #ff7e5f; }
 }
 
 .border {
