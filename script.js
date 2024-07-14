@@ -2,7 +2,15 @@ let player;
 let isPlaying = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-    typeWriterEffect("Wellbrick FM presents the Gravy Train");
+    typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
+        setTimeout(() => {
+            typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
+                setTimeout(() => {
+                    typeWriterEffect("By Mark and Louis", "typewriter3");
+                }, 2000);
+            });
+        }, 1000);
+    });
     loadYouTubeAPI();
 });
 
@@ -47,16 +55,18 @@ function togglePlayPause() {
     }
 }
 
-function typeWriterEffect(text) {
-    const typewriter = document.getElementById('typewriter');
+function typeWriterEffect(text, elementId, callback) {
+    const element = document.getElementById(elementId);
     let i = 0;
     const speed = 100; // Delay in milliseconds between each letter
 
     function typeWriter() {
         if (i < text.length) {
-            typewriter.textContent += text.charAt(i);
+            element.textContent += text.charAt(i);
             i++;
             setTimeout(typeWriter, speed);
+        } else if (callback) {
+            callback();
         }
     }
 
