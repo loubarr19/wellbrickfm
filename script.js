@@ -3,11 +3,6 @@ let isPlaying = false;
 let firstPlay = true;
 
 function onYouTubeIframeAPIReady() {
-
-    setTimeout(function() {
-    console.log("4 seconds have passed!");
-}, 4000);
-    
     player = new YT.Player('player', {
         height: '315',
         width: '560',
@@ -20,6 +15,8 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
+    // Automatically start playing the video when the player is ready
+    player.playVideo();
     document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
 }
 
@@ -38,18 +35,20 @@ function togglePlayPause() {
         player.pauseVideo();
     } else {
         if (firstPlay) {
-            playIntroAudioAndVideo();
+            playIntroAudioAndDelayVideo();
         } else {
             player.playVideo();
         }
     }
 }
 
-function playIntroAudioAndVideo() {
+function playIntroAudioAndDelayVideo() {
     const introAudio = document.getElementById('introAudio');
     introAudio.play();
-    player.playVideo();
-     firstPlay = false;
+    introAudio.addEventListener('ended', () => {
+        setTimeout(() => {
+            player.playVideo();
+        }, 4000);
+    });
+    firstPlay = false;
 }
-
-
