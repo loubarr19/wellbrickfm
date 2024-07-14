@@ -1,6 +1,5 @@
 let player;
 let isPlaying = false;
-let firstPlay = true;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -16,8 +15,6 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
-    // Automatically start playing the intro audio when the page loads
-    playIntroAudio();
 }
 
 function onPlayerStateChange(event) {
@@ -36,20 +33,4 @@ function togglePlayPause() {
     } else {
         player.playVideo();
     }
-}
-
-function playIntroAudio() {
-    const introAudio = document.getElementById('introAudio');
-    const playPromise = introAudio.play();
-    
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            // Audio playback started
-        }).catch(error => {
-            // Auto-play was prevented
-            alert("Intro audio auto-play was prevented:", error);
-        });
-    introAudio.addEventListener('ended', () => {
-        firstPlay = false;
-    });
 }
