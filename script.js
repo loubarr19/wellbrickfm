@@ -4,6 +4,7 @@ let firstPlay = true;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
+        volume: '0',
         height: '315',
         width: '560',
         videoId: 'R6_3OchvW_c',
@@ -44,7 +45,6 @@ function playIntroAudioAndVideo() {
     const introAudio = document.getElementById('introAudio');
     introAudio.play();
     player.playVideo();
-    player.setVolume(0);
      firstPlay = false;
 }
 
