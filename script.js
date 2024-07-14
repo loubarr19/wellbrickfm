@@ -25,13 +25,13 @@ function togglePlayPause() {
     const playPauseBtn = document.getElementById('playPauseBtn');
     
     if (isPlaying) {
-        body.classList.remove('fade');
+        //body.classList.remove('fade');
         player.pauseVideo();
         playPauseBtn.textContent = 'Play';
         clearInterval(vinyl.spinInterval); // Stop spinning
         liveBox.style.display = 'none'; // Hide LIVE box
     } else {
-        body.classList.add('fade');
+        //body.classList.add('fade');
         player.playVideo();
         playPauseBtn.textContent = 'Pause';
         vinyl.spinInterval = setInterval(() => {
