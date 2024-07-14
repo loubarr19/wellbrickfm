@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Video Player</title>
+    <title>Retro Record Player</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="computer-frame">
-        <div class="screen">
+        <div class="typewriter">
             <div id="typewriter1"></div>
             <div id="typewriter2"></div>
             <div id="typewriter3"></div>
-            <div id="player"></div>
         </div>
-        <div class="controls">
-            <button id="playPauseBtn">Play</button>
+        <div class="record-player">
+            <div class="vinyl" id="vinyl">
+                <img src="your-image-url-here.png" alt="Vinyl Label" class="label">
+            </div>
+            <div class="controls">
+                <button id="playPauseBtn">Play</button>
+            </div>
         </div>
     </div>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <audio id="audio" src="your-audio-url-here.mp3"></audio>
     <script src="script.js"></script>
 </body>
 </html>
