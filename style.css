@@ -25,16 +25,16 @@ pre {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Soft shadow */
 }
 
-.strobe {
-    animation: strobeEffect 0.2s infinite; /* Strobe effect */
+.fade {
+    animation: fadeEffect 10s infinite; /* Slow fade effect */
 }
 
-@keyframes strobeEffect {
-    0% { background: #ff7e5f; }
-    25% { background: #feb47b; }
-    50% { background: #7f00ff; }
-    75% { background: #00d4ff; }
-    100% { background: #ff7e5f; }
+@keyframes fadeEffect {
+    0% { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
+    25% { background: linear-gradient(135deg, #feb47b, #7f00ff); }
+    50% { background: linear-gradient(135deg, #7f00ff, #00d4ff); }
+    75% { background: linear-gradient(135deg, #00d4ff, #ff7e5f); }
+    100% { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
 }
 
 .border {
