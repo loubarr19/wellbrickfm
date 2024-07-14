@@ -26,13 +26,13 @@ pre {
 
 .banner {
     width: 100%; /* Full width of the screen */
-    overflow-wrap: break-word; /* Break long words to fit within the width */
     white-space: pre-wrap; /* Preserve whitespace and wrap lines */
-    font-family: 'Courier New', Courier, monospace; /* Use monospace font */
-    font-size: 12px; /* Adjust font size as needed */
+    overflow-wrap: break-word; /* Break long words to fit */
+    font-family: 'Courier New', Courier, monospace; /* Use a monospace font */
+    font-size: 2vw; /* Adjust font size based on viewport width */
     margin: 0; /* Remove default margins */
     padding: 10px; /* Add padding for spacing */
-   
+
 }
 
 .border {
