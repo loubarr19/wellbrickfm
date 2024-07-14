@@ -16,22 +16,48 @@ body {
     text-align: center;
 }
 
-.screen {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 300px; /* Adjust height as needed */
+.typewriter {
+    margin-bottom: 20px; /* Space between text and record player */
 }
 
-#typewriter1, #typewriter2 {
-    font-size: 18px;
+.record-player {
+    position: relative;
+}
+
+.vinyl {
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Adjust the size as needed */
+    border-radius: 50%;
+    background-color: #000;
+    border: 10px solid #333; /* Outer rim */
+    position: relative;
+    animation: spin 10s linear infinite;
+}
+
+.label {
+    width: 80px; /* Size of the label */
+    height: 80px; /* Size of the label */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#typewriter1, #typewriter2, #typewriter3 {
+    font-size: 24px;
     margin: 5px 0; /* Space between lines */
-    min-height: 40px; /* Ensures spacing */
-}
-
-#typewriter3 {
-    font-size: 18px;
-    margin-top: 25px 0; /* Space between lines */
     min-height: 40px; /* Ensures spacing */
 }
