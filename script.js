@@ -33,18 +33,20 @@ function togglePlayPause() {
         player.pauseVideo();
     } else {
         if (firstPlay) {
-            playIntroAudio();
+            playIntroAudioAndVideo();
         } else {
             player.playVideo();
         }
     }
 }
 
-function playIntroAudio() {
+function playIntroAudioAndVideo() {
     const introAudio = document.getElementById('introAudio');
     introAudio.play();
-    introAudio.onended = () => {
-        player.playVideo();
-        firstPlay = false;
-    };
+    player.setVolume(0);
+    player.playVideo();
+    setTimeout(() => {
+        player.setVolume(100);
+    }, 4000);
+    firstPlay = false;
 }
