@@ -40,22 +40,21 @@ function togglePlayPause() {
     }
 }
 
+function playVideo()
+{
+    alert("playing");
+    player.playVideo();
+}
+
 function playIntroAudioAndVideo() {
     const introAudio = document.getElementById('introAudio');
     introAudio.play();
     introAudio.onended = () => {
         //player.playVideo();
         alert("finished");
-        playVideo(true);
+        playVideo();
         firstPlay = false;
     };
 }
 
-function playVideo(bool playNow)
-{
-    if(playNow)
-    {
-        alert("playing");
-        player.playVideo();
-    }
-}
+
