@@ -37,14 +37,11 @@ body {
 
 .live-box {
     display: none;
-    position: absolute;
-    top: -40px;
     font-size: 20px;
     font-weight: bold;
     background-color: red;
     color: white;
     padding: 5px 10px;
-    margin-bottom: 10px;
     border: 2px solid black;
     border: 2px solid transparent;
     background: linear-gradient(red, red) padding-box, repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 1px, transparent 2px) border-box;
@@ -77,6 +74,10 @@ body {
 
 .controls {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Make sure the controls take the full width */
+    padding: 0 20px; /* Add padding to ensure equal spacing */
 }
 
 button {
@@ -89,7 +90,6 @@ button {
     border-radius: 4px;
     box-shadow: 2px 2px 5px #808080;
     cursor: pointer;
-    margin-top: 20px; /* Adjust margin to place button correctly */
 }
 
 button:active {
