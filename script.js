@@ -46,6 +46,16 @@ function playIntroAudioAndVideo() {
     introAudio.onended = () => {
         //player.playVideo();
         alert("finished");
+        playVideo(true);
         firstPlay = false;
     };
+}
+
+function playVideo(bool playNow)
+{
+    if(playNow)
+    {
+        alert("playing");
+        player.playVideo();
+    }
 }
