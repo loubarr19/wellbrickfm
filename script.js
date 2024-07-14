@@ -23,8 +23,6 @@ function onPlayerReady(event) {
 }
 
 function togglePlayPause() {
-    
-    
     if (isPlaying) {
         //body.classList.remove('fade');
         player.pauseVideo();
