@@ -2,9 +2,6 @@ let isPlaying = false;
 let player;
 const body = document.body;
 let rotation = 0; // Keep track of the rotation
-const vinyl = document.getElementById('vinyl');
-const liveBox = document.getElementById('liveBox');
-const playPauseBtn = document.getElementById('playPauseBtn');
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -23,6 +20,10 @@ function onPlayerReady(event) {
 }
 
 function togglePlayPause() {
+    const vinyl = document.getElementById('vinyl');
+    const liveBox = document.getElementById('liveBox');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
     if (isPlaying) {
         body.classList.remove('fade');
         player.pauseVideo();
@@ -61,6 +62,21 @@ function typeWriterEffect(text, elementId, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure YouTube API is loaded before initializing the player
+    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+
+    // Add a user interaction event listener to start the player on user interaction
+    document.getElementById('playPauseBtn').addEventListener('click', () => {
+        if (player && player.playVideo) {
+            player.playVideo(); // Ensure playVideo is called once the player is ready
+        }
+    });
+
     typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
         setTimeout(() => {
             typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
@@ -71,5 +87,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     });
 });
-
-
