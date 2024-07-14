@@ -57,7 +57,7 @@ function playIntroAudio() {
             // Audio playback started
         }).catch(error => {
             // Auto-play was prevented
-            console.error("Intro audio auto-play was prevented:", error);
+            alert("Intro audio auto-play was prevented:", error);
         });
     }
 
