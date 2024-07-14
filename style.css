@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Courier New', Courier, monospace;
     background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Initial gradient */
     transition: background 0.5s; /* Smooth transition for background */
@@ -136,4 +136,166 @@ button:active {
     font-size: 14px;
     font-weight: bold; /* Make the text bold */
     margin: 3px 0; /* Space between lines */
+}
+ */
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #232323, #232323);
+    background-size: cover;
+    overflow: hidden;
+}
+
+#record-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: auto;
+    position: relative;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+#vinyl {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: black;
+    position: relative;
+    animation-play-state: paused; /* Ensure the vinyl is initially paused */
+}
+
+#vinyl-border {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 10px solid;
+    position: absolute;
+    animation: borderColorFade 10s infinite;
+}
+
+.ring {
+    position: absolute;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.ring1 {
+    width: 280px;
+    height: 280px;
+    top: 10px;
+    left: 10px;
+}
+
+.ring2 {
+    width: 260px;
+    height: 260px;
+    top: 20px;
+    left: 20px;
+}
+
+.ring3 {
+    width: 240px;
+    height: 240px;
+    top: 30px;
+    left: 30px;
+}
+
+.ring4 {
+    width: 220px;
+    height: 220px;
+    top: 40px;
+    left: 40px;
+}
+
+.ring5 {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    left: 50px;
+}
+
+@keyframes borderColorFade {
+    0% {
+        border-color: red;
+    }
+    33% {
+        border-color: green;
+    }
+    66% {
+        border-color: blue;
+    }
+    100% {
+        border-color: red;
+    }
+}
+
+#playPauseBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+#liveBox {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ff0000;
+    color: #fff;
+    display: none;
+}
+
+.typewriter-text {
+    font-family: monospace;
+    white-space: pre;
+}
+
+#typewriter1, #typewriter2, #typewriter3 {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 5%;
+}
+
+#typewriter1 {
+    top: 20px;
+}
+
+#typewriter2 {
+    top: 60px;
+}
+
+#typewriter3 {
+    top: 100px;
+}
+
+.fade {
+    animation: colorFade 10s infinite;
+}
+
+@keyframes colorFade {
+    0% {
+        background-color: red;
+    }
+    33% {
+        background-color: green;
+    }
+    66% {
+        background-color: blue;
+    }
+    100% {
+        background-color: red;
+    }
 }
