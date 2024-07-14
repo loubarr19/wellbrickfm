@@ -20,7 +20,8 @@ body {
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align to the top */
+    justify-content: space-between; /* Distribute space between typewriter text and record player */
+    align-items: center; /* Center horizontally */
 }
 
 .typewriter {
@@ -30,20 +31,21 @@ body {
     justify-content: center; /* Center vertically within the flex item */
     align-items: center; /* Center horizontally */
     text-align: center;
+    margin-bottom: 20px; /* Add space between text and record player */
 }
 
 .record-player {
-    height: 33%; /* 1/3 of the height of the computer frame */
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
-    margin-top: 50px; /* Adjust the margin to move it higher */
+    margin-top: -50px; /* Adjust the margin to move it higher */
 }
 
 .vinyl {
     width: 200px; /* Adjust the size as needed */
-    height: 200px; /* Adjust the size as needed */
+    height: 200px; /* Make sure it's perfectly round */
     border-radius: 50%;
     background-color: #000;
     border: 10px solid #333; /* Outer rim */
@@ -74,7 +76,6 @@ button {
     border-radius: 4px;
     box-shadow: 2px 2px 5px #808080;
     cursor: pointer;
-    margin-top: auto; /* Align button to the bottom */
 }
 
 button:active {
@@ -99,7 +100,7 @@ button:active {
     margin: 5px 0; /* Space between lines */
 }
 
-#typewriter3 {
+ #typewriter3 {
     font-size: 14px;
     font-weight: bold; /* Make the text bold */
     margin: 25px 0; /* Space between lines */
