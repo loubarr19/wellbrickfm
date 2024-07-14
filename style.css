@@ -11,28 +11,13 @@ body {
     position: relative;
 }
 
-.computer-frame {
-    padding: 20px;
-    background-color: #fff;
-    height: 80vh; /* Occupy 80% of the viewport height */
-    width: 80vw; /* Occupy 80% of the viewport width */
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribute space between typewriter text and record player */
-    align-items: center; /* Center horizontally */
-    position: relative;
-    box-sizing: border-box;
-    border: 2px solid transparent;
-    background: linear-gradient(#fff, #fff) padding-box, repeating-linear-gradient(45deg, #000, #000 1px, transparent 1px, transparent 2px) border-box;
+.border {
+    white-space: pre;
+    font-size: 20px;
+    text-align: center;
 }
 
 .typewriter {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically within the flex item */
-    align-items: center; /* Center horizontally */
     text-align: center;
     margin-bottom: 20px; /* Add space between text and record player */
 }
@@ -42,7 +27,6 @@ body {
     flex-direction: column;
     align-items: center; /* Center horizontally */
     justify-content: flex-start; /* Align to the top */
-    height: 50%; /* Adjust height as needed */
     position: relative;
     top: -20px; /* Move the record player higher */
 }
