@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Record Player</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="border-top"></div>
-    <div class="border-side"></div>
     <div class="computer-frame">
         <div class="typewriter">
             <div id="typewriter1"></div>
@@ -16,15 +14,16 @@
             <div id="typewriter3"></div>
         </div>
         <div class="record-player">
+            <div class="live-box" id="liveBox">LIVE</div>
             <div class="vinyl" id="vinyl">
-                <img src="https://raw.githubusercontent.com/loubarr19/wellbrickfm/main/IGlogo.png" alt="Vinyl Label" class="label">
+                <img src="https://raw.githubusercontent.com/your-username/your-repository/branch-name/assets/vinyl-label.png" alt="Vinyl Label" class="label">
             </div>
             <div class="controls">
                 <button id="playPauseBtn">Play</button>
             </div>
         </div>
     </div>
-    <div class="border-bottom"></div>
+    <div id="player"></div>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
