@@ -2,6 +2,9 @@ let isPlaying = false;
 let player;
 const body = document.body;
 let rotation = 0; // Keep track of the rotation
+const vinyl = document.getElementById('vinyl');
+const liveBox = document.getElementById('liveBox');
+const playPauseBtn = document.getElementById('playPauseBtn');
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -20,9 +23,7 @@ function onPlayerReady(event) {
 }
 
 function togglePlayPause() {
-    const vinyl = document.getElementById('vinyl');
-    const liveBox = document.getElementById('liveBox');
-    const playPauseBtn = document.getElementById('playPauseBtn');
+    
     
     if (isPlaying) {
         //body.classList.remove('fade');
