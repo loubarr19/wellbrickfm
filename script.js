@@ -43,8 +43,6 @@ function togglePlayPause() {
     isPlaying = !isPlaying;
 }
 
-
-
 function typeWriterEffect(text, elementId, callback) {
     const element = document.getElementById(elementId);
     let i = 0;
@@ -62,7 +60,6 @@ function typeWriterEffect(text, elementId, callback) {
 
     typeWriter();
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
