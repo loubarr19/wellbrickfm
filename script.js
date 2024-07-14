@@ -1,5 +1,6 @@
 let isPlaying = false;
 let player;
+let currentRotation = 0;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -25,12 +26,14 @@ function togglePlayPause() {
     if (isPlaying) {
         player.pauseVideo();
         playPauseBtn.textContent = 'Play';
-        vinyl.classList.remove('spin'); // Stop spinning
+        vinyl.style.animationPlayState = 'paused'; // Pause spinning
+        currentRotation += parseFloat(getComputedStyle(vinyl).getPropertyValue('transform').split(',')[1]) * 180 / Math.PI;
         liveBox.style.display = 'none'; // Hide LIVE box
     } else {
         player.playVideo();
         playPauseBtn.textContent = 'Pause';
-        vinyl.classList.add('spin'); // Start spinning
+        vinyl.style.animation = `spin 10s linear infinite ${currentRotation}deg`; // Continue spinning from where it left off
+        vinyl.style.animationPlayState = 'running'; // Start spinning
         liveBox.style.display = 'block'; // Show LIVE box
     }
     isPlaying = !isPlaying;
@@ -55,14 +58,15 @@ function typeWriterEffect(text, elementId, callback) {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
         setTimeout(() => {
             typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
                 setTimeout(() => {
-                    typeWriterEffect("By Mark and Louis", "typewriter3");
-                }, 1000);
+                    typeWriterEffect("Hosted by Mark and Lou", "typewriter3");
+                }, 500);
             });
-        }, 1000);
+        }, 500);
     });
 });
