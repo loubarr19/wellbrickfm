@@ -6,6 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-weight:bold;
 }
 
 .computer-frame {
@@ -57,7 +58,8 @@ body {
 }
 
 #typewriter1, #typewriter2, #typewriter3 {
-    font-size: 24px;
+    font-size: 16
+        px;
     margin: 5px 0; /* Space between lines */
     min-height: 40px; /* Ensures spacing */
 }
