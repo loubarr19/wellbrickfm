@@ -1,6 +1,6 @@
 let isPlaying = false;
 let player;
-let currentRotation = 0;
+let rotation = 0; // Keep track of the rotation
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -26,14 +26,15 @@ function togglePlayPause() {
     if (isPlaying) {
         player.pauseVideo();
         playPauseBtn.textContent = 'Play';
-        vinyl.style.animationPlayState = 'paused'; // Pause spinning
-        currentRotation += parseFloat(getComputedStyle(vinyl).getPropertyValue('transform').split(',')[1]) * 180 / Math.PI;
+        clearInterval(vinyl.spinInterval); // Stop spinning
         liveBox.style.display = 'none'; // Hide LIVE box
     } else {
         player.playVideo();
         playPauseBtn.textContent = 'Pause';
-        vinyl.style.animation = `spin 10s linear infinite ${currentRotation}deg`; // Continue spinning from where it left off
-        vinyl.style.animationPlayState = 'running'; // Start spinning
+        vinyl.spinInterval = setInterval(() => {
+            rotation += 1;
+            vinyl.style.transform = `rotate(${rotation}deg)`;
+        }, 10); // Spin every 10ms
         liveBox.style.display = 'block'; // Show LIVE box
     }
     isPlaying = !isPlaying;
@@ -56,7 +57,6 @@ function typeWriterEffect(text, elementId, callback) {
 
     typeWriter();
 }
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
