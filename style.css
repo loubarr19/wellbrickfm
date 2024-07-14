@@ -6,6 +6,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    width: 100vw;
+    overflow: hidden; /* Prevent page from expanding */
 }
 
 .computer-frame {
@@ -13,24 +15,29 @@ body {
     padding: 20px;
     background-color: #fff;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
     height: 80vh; /* Occupy 80% of the viewport height */
+    width: 80vw; /* Occupy 80% of the viewport width */
+    max-width: 800px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
+    justify-content: space-between; /* Center vertically */
 }
 
 .typewriter {
-    margin-bottom: 20px; /* Space between text and record player */
-    flex: 1; /* Allow text area to grow */
+    flex: 1;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: flex-end; /* Align to the bottom of the text area */
+    flex-direction: column;
+    justify-content: center; /* Center vertically within the flex item */
+    align-items: center; /* Center horizontally */
+    text-align: center;
 }
 
 .record-player {
-    position: relative;
     height: 33%; /* 1/3 of the height of the computer frame */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
 }
 
 .vinyl {
@@ -67,8 +74,6 @@ body {
 
 #typewriter1, #typewriter2, #typewriter3 {
     font-size: 14px;
-    font-weight: bold; /* Make the text bold *
+    font-weight: bold; /* Make the text bold */
     margin: 5px 0; /* Space between lines */
-    min-height: 40px; /* Ensures spacing */
-    text-align: center; /* Center text */
 }
