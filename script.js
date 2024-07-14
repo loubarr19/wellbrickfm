@@ -1,58 +1,33 @@
-let player;
 let isPlaying = false;
+const audio = document.getElementById('audio');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const vinyl = document.getElementById('vinyl');
 
 document.addEventListener('DOMContentLoaded', () => {
-    typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
+    typeWriterEffect("Wellbrick FM presents the Gravy Train", "typewriter1", () => {
         setTimeout(() => {
-            typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
+            typeWriterEffect("Enjoy the ride!", "typewriter2", () => {
                 setTimeout(() => {
-                    typeWriterEffect("By Mark and Louis", "typewriter3");
-                }, 2000);
+                    typeWriterEffect("Let's get started!", "typewriter3");
+                }, 000);
             });
-        }, 1000);
+        }, 2000);
     });
-    loadYouTubeAPI();
 });
 
-function loadYouTubeAPI() {
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
-
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '315',
-        width: '560',
-        videoId: 'R6_3OchvW_c',
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
-
-function onPlayerReady(event) {
-    document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
-}
-
-function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING) {
-        document.getElementById('playPauseBtn').textContent = 'Pause';
-        isPlaying = true;
-    } else {
-        document.getElementById('playPauseBtn').textContent = 'Play';
-        isPlaying = false;
-    }
-}
+playPauseBtn.addEventListener('click', togglePlayPause);
 
 function togglePlayPause() {
     if (isPlaying) {
-        player.pauseVideo();
+        audio.pause();
+        playPauseBtn.textContent = 'Play';
+        vinyl.style.animationPlayState = 'paused'; // Pause spinning
     } else {
-        player.playVideo();
+        audio.play();
+        playPauseBtn.textContent = 'Pause';
+        vinyl.style.animationPlayState = 'running'; // Resume spinning
     }
+    isPlaying = !isPlaying;
 }
 
 function typeWriterEffect(text, elementId, callback) {
