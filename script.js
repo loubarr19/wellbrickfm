@@ -25,13 +25,13 @@ function togglePlayPause() {
     const playPauseBtn = document.getElementById('playPauseBtn');
     
     if (isPlaying) {
-        body.classList.remove('strobe');
+        body.classList.remove('fade');
         player.pauseVideo();
         playPauseBtn.textContent = 'Play';
         clearInterval(vinyl.spinInterval); // Stop spinning
         liveBox.style.display = 'none'; // Hide LIVE box
     } else {
-        body.classList.add('strobe');
+        body.classList.add('fade');
         player.playVideo();
         playPauseBtn.textContent = 'Pause';
         vinyl.spinInterval = setInterval(() => {
@@ -42,6 +42,8 @@ function togglePlayPause() {
     }
     isPlaying = !isPlaying;
 }
+
+
 
 function typeWriterEffect(text, elementId, callback) {
     const element = document.getElementById(elementId);
