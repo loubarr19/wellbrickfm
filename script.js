@@ -1,5 +1,6 @@
 let isPlaying = false;
 let player;
+const body = document.body;
 let rotation = 0; // Keep track of the rotation
 
 function onYouTubeIframeAPIReady() {
@@ -24,11 +25,13 @@ function togglePlayPause() {
     const playPauseBtn = document.getElementById('playPauseBtn');
     
     if (isPlaying) {
+        body.classList.remove('strobe');
         player.pauseVideo();
         playPauseBtn.textContent = 'Play';
         clearInterval(vinyl.spinInterval); // Stop spinning
         liveBox.style.display = 'none'; // Hide LIVE box
     } else {
+        body.classList.add('strobe');
         player.playVideo();
         playPauseBtn.textContent = 'Pause';
         vinyl.spinInterval = setInterval(() => {
