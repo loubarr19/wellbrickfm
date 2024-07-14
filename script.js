@@ -15,8 +15,8 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    // Automatically start playing the video when the player is ready
-    player.playVideo();
+   const introAudio = document.getElementById('introAudio');
+    introAudio.play();
     document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
 }
 
@@ -43,12 +43,8 @@ function togglePlayPause() {
 }
 
 function playIntroAudioAndDelayVideo() {
-    const introAudio = document.getElementById('introAudio');
-    introAudio.play();
-    introAudio.addEventListener('ended', () => {
-        setTimeout(() => {
+    
             player.playVideo();
-        }, 4000);
-    });
-    firstPlay = false;
+        
+   
 }
