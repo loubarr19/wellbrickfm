@@ -3,8 +3,12 @@ let isPlaying = false;
 let firstPlay = true;
 
 function onYouTubeIframeAPIReady() {
+
+    setTimeout(function() {
+    console.log("4 seconds have passed!");
+}, 4000);
+    
     player = new YT.Player('player', {
-        volume: '0',
         height: '315',
         width: '560',
         videoId: 'R6_3OchvW_c',
