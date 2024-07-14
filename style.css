@@ -25,16 +25,14 @@ pre {
 }
 
 .banner {
-    width: 100%; /* Make it take the full width of the screen */
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
-    white-space: pre-wrap; /* Wrap long lines */
-    font-family: 'Courier New', Courier, monospace; /* Use a monospace font */
-    font-size: 14px; /* Adjust font size as needed */
+    width: 100%; /* Full width of the screen */
+    overflow-wrap: break-word; /* Break long words to fit within the width */
+    white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+    font-family: 'Courier New', Courier, monospace; /* Use monospace font */
+    font-size: 12px; /* Adjust font size as needed */
     margin: 0; /* Remove default margins */
-    padding: 10px; /* Add some padding */
-    background-color: #f0f0f0; /* Optional: Light background for contrast */
-    border: 1px solid #ccc; /* Optional: Border for visual separation */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Soft shadow */
+    padding: 10px; /* Add padding for spacing */
+   
 }
 
 .border {
