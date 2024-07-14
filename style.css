@@ -20,7 +20,7 @@ body {
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Center vertically */
+    justify-content: flex-start; /* Align to the top */
 }
 
 .typewriter {
@@ -38,6 +38,7 @@ body {
     flex-direction: column;
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
+    margin-top: 50px; /* Adjust the margin to move it higher */
 }
 
 .vinyl {
@@ -63,6 +64,26 @@ body {
     margin-top: 20px;
 }
 
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background-color: #c0c0c0;
+    border: 2px solid #808080;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px #808080;
+    cursor: pointer;
+    margin-top: auto; /* Align button to the bottom */
+}
+
+button:active {
+    box-shadow: none;
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -72,8 +93,14 @@ body {
     }
 }
 
-#typewriter1, #typewriter2, #typewriter3 {
+#typewriter1, #typewriter2 {
     font-size: 14px;
     font-weight: bold; /* Make the text bold */
     margin: 5px 0; /* Space between lines */
+}
+
+#typewriter3 {
+    font-size: 14px;
+    font-weight: bold; /* Make the text bold */
+    margin: 25px 0; /* Space between lines */
 }
