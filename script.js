@@ -44,7 +44,7 @@ function playIntroAudioAndVideo() {
     const introAudio = document.getElementById('introAudio');
     introAudio.play();
     player.playVideo();
-    player..setVolume(0);
+    player.setVolume(0);
      firstPlay = false;
 }
 
