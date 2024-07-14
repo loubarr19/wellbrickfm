@@ -43,8 +43,8 @@ function togglePlayPause() {
 function playIntroAudioAndVideo() {
     const introAudio = document.getElementById('introAudio');
     introAudio.play();
-    player.setVolume(0);
     player.playVideo();
+    player.setVolume(0);
     setTimeout(() => {
         player.setVolume(100);
     }, 4000);
