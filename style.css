@@ -18,10 +18,20 @@ body {
 
 .screen {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px; /* Adjust height as needed */
 }
 
-#typewriter {
+#typewriter1, #typewriter2 {
     font-size: 24px;
-    margin-bottom: 20px;
-    min-height: 40px;
+    margin: 5px 0; /* Space between lines */
+    min-height: 40px; /* Ensures spacing */
+}
+
+#typewriter3 {
+    font-size: 24px;
+    margin-top: 25px 0; /* Space between lines */
+    min-height: 40px; /* Ensures spacing */
 }
