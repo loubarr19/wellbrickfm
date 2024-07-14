@@ -15,9 +15,9 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-   const introAudio = document.getElementById('introAudio');
-    introAudio.play();
     document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
+    // Automatically start playing the intro audio when the page loads
+    playIntroAudio();
 }
 
 function onPlayerStateChange(event) {
@@ -34,17 +34,14 @@ function togglePlayPause() {
     if (isPlaying) {
         player.pauseVideo();
     } else {
-        if (firstPlay) {
-            playIntroAudioAndDelayVideo();
-        } else {
-            player.playVideo();
-        }
+        player.playVideo();
     }
 }
 
-function playIntroAudioAndDelayVideo() {
-    
-            player.playVideo();
-        
-   
+function playIntroAudio() {
+    const introAudio = document.getElementById('introAudio');
+    introAudio.play();
+    introAudio.addEventListener('ended', () => {
+        firstPlay = false;
+    });
 }
