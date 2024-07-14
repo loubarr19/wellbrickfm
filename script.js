@@ -25,12 +25,12 @@ function togglePlayPause() {
     if (isPlaying) {
         player.pauseVideo();
         playPauseBtn.textContent = 'Play';
-        vinyl.style.animationPlayState = 'paused'; // Pause spinning
+        vinyl.classList.remove('spin'); // Stop spinning
         liveBox.style.display = 'none'; // Hide LIVE box
     } else {
         player.playVideo();
         playPauseBtn.textContent = 'Pause';
-        vinyl.style.animationPlayState = 'running'; // Resume spinning
+        vinyl.classList.add('spin'); // Start spinning
         liveBox.style.display = 'block'; // Show LIVE box
     }
     isPlaying = !isPlaying;
@@ -54,13 +54,14 @@ function typeWriterEffect(text, elementId, callback) {
     typeWriter();
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
         setTimeout(() => {
             typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
                 setTimeout(() => {
                     typeWriterEffect("By Mark and Louis", "typewriter3");
-                }, 2000);
+                }, 1000);
             });
         }, 1000);
     });
