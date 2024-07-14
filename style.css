@@ -11,55 +11,6 @@ body {
     position: relative;
 }
 
-.border-top, .border-bottom {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background: repeating-linear-gradient(
-        90deg,
-        #000,
-        #000 10px,
-        #fff 10px,
-        #fff 20px
-    );
-    line-height: 20px;
-    font-size: 20px;
-    text-align: center;
-}
-
-.border-top {
-    top: 0;
-}
-
-.border-bottom {
-    bottom: 0;
-}
-
-.border-side {
-    position: absolute;
-    top: 20px;
-    bottom: 20px;
-    width: 20px;
-    background: repeating-linear-gradient(
-        0deg,
-        #000,
-        #000 10px,
-        #fff 10px,
-        #fff 20px
-    );
-    line-height: 20px;
-    font-size: 20px;
-}
-
-.border-side:first-of-type {
-    left: 0;
-}
-
-.border-side:last-of-type {
-    right: 0;
-}
-
 .computer-frame {
     border: 2px solid #000;
     padding: 20px;
@@ -73,6 +24,9 @@ body {
     justify-content: space-between; /* Distribute space between typewriter text and record player */
     align-items: center; /* Center horizontally */
     position: relative;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box, repeating-linear-gradient(45deg, #000, #000 1px, transparent 1px, transparent 2px) border-box;
 }
 
 .typewriter {
@@ -95,6 +49,21 @@ body {
     top: -20px; /* Move the record player higher */
 }
 
+.live-box {
+    display: none;
+    position: absolute;
+    top: -40px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: 2px solid black;
+    border: 2px solid transparent;
+    background: linear-gradient(red, red) padding-box, repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 1px, transparent 2px) border-box;
+    text-align: center;
+}
+
 .vinyl {
     width: 200px; /* Adjust the size as needed */
     height: 200px; /* Make sure it's perfectly round */
@@ -103,6 +72,7 @@ body {
     border: 10px solid #333; /* Outer rim */
     position: relative;
     animation: spin 10s linear infinite;
+    animation-play-state: paused; /* Initially paused */
 }
 
 .label {
@@ -149,14 +119,8 @@ button:active {
     }
 }
 
-#typewriter1, #typewriter2{
-    font-size: 14px;
+#typewriter1, #typewriter2, #typewriter3 {
+    font-size: 24px;
     font-weight: bold; /* Make the text bold */
     margin: 5px 0; /* Space between lines */
-}
-
-#typewriter3 {
-    font-size: 14px;
-    font-weight: bold; /* Make the text bold */
-    margin: 35px 0; /* Space between lines */
 }
