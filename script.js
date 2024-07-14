@@ -49,12 +49,12 @@ function typeWriterEffect(text, elementId, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    typeWriterEffect("Wellbrick FM presents the Gravy Train", "typewriter1", () => {
+    typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
         setTimeout(() => {
-            typeWriterEffect("Enjoy the ride!", "typewriter2", () => {
+            typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
                 setTimeout(() => {
-                    typeWriterEffect("Let's get started!", "typewriter3");
-                }, 500);
+                    typeWriterEffect("By Mark and Louis", "typewriter3");
+                }, 2000);
             });
         }, 1000);
     });
