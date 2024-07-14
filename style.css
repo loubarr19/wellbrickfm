@@ -12,6 +12,23 @@ body {
     position: relative;
 }
 
+#banner {
+    width: 100%;
+    height: 60px; /* Adjust height as needed */
+    border-top: 2px solid white;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #232323;
+}
+
+#logo {
+    height: 50px; /* Adjust height as needed */
+    width: auto;
+}
+
 pre {
     width: 100%; /* Make it take the full width of the screen */
     overflow-x: auto; /* Allow horizontal scrolling if content overflows */
