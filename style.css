@@ -32,7 +32,7 @@ body {
     align-items: center; /* Center horizontally */
     justify-content: flex-start; /* Align to the top */
     position: relative;
-    top: 50px; /* Move the record player down to give more margin */
+    top: 20px; /* Move the record player down */
 }
 
 .live-box {
@@ -46,12 +46,6 @@ body {
     border: 2px solid transparent;
     background: linear-gradient(red, red) padding-box, repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 1px, transparent 2px) border-box;
     text-align: center;
-    animation: flash 1s infinite; /* Add flashing animation */
-}
-
-@keyframes flash {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
 }
 
 .vinyl {
@@ -61,7 +55,6 @@ body {
     background-color: #000;
     border: 10px solid #333; /* Outer rim */
     position: relative;
-    transform-origin: center center;
 }
 
 .label {
