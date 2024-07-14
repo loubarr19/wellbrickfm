@@ -20,6 +20,10 @@ body {
 .typewriter {
     text-align: center;
     margin-bottom: 20px; /* Add space between text and record player */
+    height: 100px; /* Fixed height for the typewriter text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically within the allocated height */
 }
 
 .record-player {
@@ -40,6 +44,7 @@ body {
     background-color: red;
     color: white;
     padding: 5px 10px;
+    margin-bottom: 10px;
     border: 2px solid black;
     border: 2px solid transparent;
     background: linear-gradient(red, red) padding-box, repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 1px, transparent 2px) border-box;
@@ -106,5 +111,5 @@ button:active {
 #typewriter1, #typewriter2, #typewriter3 {
     font-size: 14px;
     font-weight: bold; /* Make the text bold */
-    margin: 5px 0; /* Space between lines */
+    margin: 3px 0; /* Space between lines */
 }
