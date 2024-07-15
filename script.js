@@ -5,43 +5,61 @@ let rotation = 0; // Keep track of the rotation
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '0',
-        width: '0',
+        height: '315',
+        width: '560',
         videoId: 'R6_3OchvW_c',
         events: {
-            'onReady': onPlayerReady
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
         }
     });
 }
 
 function onPlayerReady(event) {
-    // Initial play/pause button setup
     document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
 }
 
-function togglePlayPause() {
-    const vinyl = document.getElementById('vinyl');
-    const liveBox = document.getElementById('liveBox');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-
-    if (isPlaying) {
-        body.classList.remove('fade');
-        player.pauseVideo();
-        playPauseBtn.textContent = 'Play';
-        clearInterval(vinyl.spinInterval); // Stop spinning
-        liveBox.style.display = 'none'; // Hide LIVE box
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+        document.getElementById('playPauseBtn').textContent = 'Pause';
+        isPlaying = true;
     } else {
-        body.classList.add('fade');
-        player.playVideo();
-        playPauseBtn.textContent = 'Pause';
-        vinyl.spinInterval = setInterval(() => {
-            rotation += 1;
-            vinyl.style.transform = `rotate(${rotation}deg)`;
-        }, 10); // Spin every 10ms
-        liveBox.style.display = 'block'; // Show LIVE box
+        document.getElementById('playPauseBtn').textContent = 'Play';
+        isPlaying = false;
     }
-    isPlaying = !isPlaying;
 }
+
+function togglePlayPause() {
+    if (isPlaying) {
+        player.pauseVideo();
+    } else {
+        player.playVideo();
+    }
+}
+
+// function togglePlayPause() {
+//     const vinyl = document.getElementById('vinyl');
+//     const liveBox = document.getElementById('liveBox');
+//     const playPauseBtn = document.getElementById('playPauseBtn');
+
+//     if (isPlaying) {
+//         body.classList.remove('fade');
+//         player.pauseVideo();
+//         playPauseBtn.textContent = 'Play';
+//         clearInterval(vinyl.spinInterval); // Stop spinning
+//         liveBox.style.display = 'none'; // Hide LIVE box
+//     } else {
+//         body.classList.add('fade');
+//         player.playVideo();
+//         playPauseBtn.textContent = 'Pause';
+//         vinyl.spinInterval = setInterval(() => {
+//             rotation += 1;
+//             vinyl.style.transform = `rotate(${rotation}deg)`;
+//         }, 10); // Spin every 10ms
+//         liveBox.style.display = 'block'; // Show LIVE box
+//     }
+//     isPlaying = !isPlaying;
+// }
 
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure YouTube API is loaded before initializing the player
