@@ -34,10 +34,12 @@ function onPlayerStateChange(event) {
 
 function togglePlayPause() {
     if (isPlaying) {
+        body.classList.remove('fade');
         player.pauseVideo();
         clearInterval(vinyl.spinInterval); // Stop spinning
         liveBox.style.display = 'none'; // Hide LIVE box
     } else {
+        body.classList.add('fade');
         player.playVideo();
         vinyl.spinInterval = setInterval(() => {
             rotation += 1;
@@ -48,6 +50,7 @@ function togglePlayPause() {
 }
 
 // function togglePlayPause() {
+       body.classList.remove('fade');
 //     const vinyl = document.getElementById('vinyl');
 //     const liveBox = document.getElementById('liveBox');
 //     const playPauseBtn = document.getElementById('playPauseBtn');
