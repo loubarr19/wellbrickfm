@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
         setTimeout(() => {
-            typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
+            typeWriterEffect("Your 24/7 groove station", "typewriter2", () => {
                 setTimeout(() => {
                     typeWriterEffect("Hosted by Mark and Lou", "typewriter3");
                 }, 500);
