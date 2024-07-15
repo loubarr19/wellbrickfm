@@ -56,8 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('playPauseBtn').addEventListener('click', () => {
         if (player && player.playVideo) {
             player.playVideo(); // Ensure playVideo is called once the player is ready
-             player.pauseVideo(); // Ensure playVideo is called once the player is ready
-            player.playVideo(); // Ensure playVideo is called once the player is ready
         }
     });
 
