@@ -8,8 +8,8 @@ const playPauseBtn = document.getElementById('playPauseBtn');
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '315',
-        width: '560',
+        height: '1',
+        width: '1',
         videoId: 'R6_3OchvW_c',
         events: {
             'onReady': onPlayerReady,
