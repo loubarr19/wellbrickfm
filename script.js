@@ -17,6 +17,13 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     // Initial play/pause button setup
     document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
+
+    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
 }
 
 function togglePlayPause() {
@@ -46,12 +53,7 @@ function togglePlayPause() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure YouTube API is loaded before initializing the player
-    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
+    
 
     // Add a user interaction event listener to start the player on user interaction
     document.getElementById('playPauseBtn').addEventListener('click', () => {
@@ -60,32 +62,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-//     function typeWriterEffect(text, elementId, callback) {
-//     const element = document.getElementById(elementId);
-//     let i = 0;
-//     const speed = 100; // Delay in milliseconds between each letter
+    function typeWriterEffect(text, elementId, callback) {
+    const element = document.getElementById(elementId);
+    let i = 0;
+    const speed = 100; // Delay in milliseconds between each letter
 
-//     function typeWriter() {
-//         if (i < text.length) {
-//             element.textContent += text.charAt(i);
-//             i++;
-//             setTimeout(typeWriter, speed);
-//         } else if (callback) {
-//             callback();
-//         }
-//     }
+    function typeWriter() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        } else if (callback) {
+            callback();
+        }
+    }
 
-//     typeWriter();
-// }
+    typeWriter();
+}
 
 
-//     typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
-//         setTimeout(() => {
-//             typeWriterEffect("Your 24/7 groove station", "typewriter2", () => {
-//                 setTimeout(() => {
-//                     typeWriterEffect("Hosted by Mark and Lou.", "typewriter3");
-//                 }, 500);
-//             });
-//         }, 500);
-//     });
+    typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
+        setTimeout(() => {
+            typeWriterEffect("Your 24/7 groove station", "typewriter2", () => {
+                setTimeout(() => {
+                    typeWriterEffect("Hosted by Mark and Lou.", "typewriter3");
+                }, 500);
+            });
+        }, 500);
+    });
 });
