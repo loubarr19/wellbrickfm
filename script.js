@@ -2,6 +2,9 @@ let isPlaying = false;
 let player;
 const body = document.body;
 let rotation = 0; // Keep track of the rotation
+const vinyl = document.getElementById('vinyl');
+const liveBox = document.getElementById('liveBox');
+const playPauseBtn = document.getElementById('playPauseBtn');
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -32,8 +35,15 @@ function onPlayerStateChange(event) {
 function togglePlayPause() {
     if (isPlaying) {
         player.pauseVideo();
+        clearInterval(vinyl.spinInterval); // Stop spinning
+        liveBox.style.display = 'none'; // Hide LIVE box
     } else {
         player.playVideo();
+        vinyl.spinInterval = setInterval(() => {
+            rotation += 1;
+            vinyl.style.transform = `rotate(${rotation}deg)`;
+        }, 10); // Spin every 10ms
+        liveBox.style.display = 'block'; // Show LIVE box
     }
 }
 
