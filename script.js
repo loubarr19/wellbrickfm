@@ -43,23 +43,6 @@ function togglePlayPause() {
     isPlaying = !isPlaying;
 }
 
-function typeWriterEffect(text, elementId, callback) {
-    const element = document.getElementById(elementId);
-    let i = 0;
-    const speed = 100; // Delay in milliseconds between each letter
-
-    function typeWriter() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else if (callback) {
-            callback();
-        }
-    }
-
-    typeWriter();
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure YouTube API is loaded before initializing the player
@@ -77,13 +60,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
-        setTimeout(() => {
-            typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
-                setTimeout(() => {
-                    typeWriterEffect("Hosted by Mark and Lou", "typewriter3");
-                }, 500);
-            });
-        }, 500);
-    });
-});
+//     function typeWriterEffect(text, elementId, callback) {
+//     const element = document.getElementById(elementId);
+//     let i = 0;
+//     const speed = 100; // Delay in milliseconds between each letter
+
+//     function typeWriter() {
+//         if (i < text.length) {
+//             element.textContent += text.charAt(i);
+//             i++;
+//             setTimeout(typeWriter, speed);
+//         } else if (callback) {
+//             callback();
+//         }
+//     }
+
+//     typeWriter();
+// }
+
+
+//     typeWriterEffect("Welcome to Wellbrick FM", "typewriter1", () => {
+//         setTimeout(() => {
+//             typeWriterEffect("Your 24/7 gravy train", "typewriter2", () => {
+//                 setTimeout(() => {
+//                     typeWriterEffect("Hosted by Mark and Lou", "typewriter3");
+//                 }, 500);
+//             });
+//         }, 500);
+//     });
+// });
