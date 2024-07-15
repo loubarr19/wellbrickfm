@@ -45,12 +45,21 @@ function togglePlayPause() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure YouTube API is loaded before initializing the player
-    //if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
         const tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         const firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    //}
+    }
+
+    // Add a user interaction event listener to start the player on user interaction
+    document.getElementById('playPauseBtn').addEventListener('click', () => {
+        if (player && player.playVideo) {
+            player.playVideo(); // Ensure playVideo is called once the player is ready
+             player.pauseVideo(); // Ensure playVideo is called once the player is ready
+            player.playVideo(); // Ensure playVideo is called once the player is ready
+        }
+    });
 
     function typeWriterEffect(text, elementId, callback) {
         const element = document.getElementById(elementId);
