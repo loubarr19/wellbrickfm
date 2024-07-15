@@ -45,12 +45,12 @@ function togglePlayPause() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure YouTube API is loaded before initializing the player
-    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+    //if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
         const tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         const firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
+    //}
 
     function typeWriterEffect(text, elementId, callback) {
         const element = document.getElementById(elementId);
