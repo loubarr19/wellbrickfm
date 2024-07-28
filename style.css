@@ -4,7 +4,7 @@ body {
     transition: background 0.5s; /* Smooth transition for background */
     margin: 0;
     width: 100vw;
-    height: 100vh;
+    height: 66vh;
     display: flex;
     justify-content: center;
     align-items: center;
