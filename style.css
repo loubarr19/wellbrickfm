@@ -29,7 +29,7 @@ body {
     width: auto;
 }
 
-pre {
+/* pre {
     width: 100%; /* Make it take the full width of the screen */
     overflow-x: auto; /* Allow horizontal scrolling if content overflows */
     white-space: pre-wrap; /* Wrap long lines */
@@ -40,7 +40,7 @@ pre {
     background-color: #f0f0f0; /* Optional: Light background for contrast */
     border: 1px solid #ccc; /* Optional: Border for visual separation */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Soft shadow */
-}
+} */
 
 .fade {
     animation: fadeEffect 10s infinite; /* Slow fade effect */
