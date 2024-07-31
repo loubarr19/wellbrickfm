@@ -20,6 +20,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
+     liveBox.style.display = 'none'; // Hide LIVE box
 }
 
 function onPlayerStateChange(event) {
