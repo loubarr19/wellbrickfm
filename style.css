@@ -68,9 +68,7 @@ body {
     background-color: #000;
     border: 5px solid #333; /* Outer rim */
     position: relative;
-    padding-left: 15px;
-    padding-right: 15px;
-    
+
 }
 
 .label {
@@ -88,6 +86,7 @@ body {
     display: flex;
     align-items: center; /* Center vertically */
     height: 66px; /* Match the banner height */
+    margin-left: 15px;
 }
 
 button {
@@ -135,6 +134,7 @@ button:active {
   padding: 5px;
   font-weight: bold;
   display: inline-block;
+    margin-right: 15px;
 }
 
 .live-box.flash {
