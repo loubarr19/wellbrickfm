@@ -130,11 +130,15 @@ button:active {
 }
 
 .live-box {
-  background-color: red;
-  color: white;
-  padding: 5px;
-  font-weight: bold;
-  display: inline-block;
+  padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+/*     background-color: #c0c0c0;
+    border: 2px solid #808080; */
+/*     border-radius: 4px;
+    box-shadow: 2px 2px 5px #808080; */
+    cursor: pointer;
     margin-right: 15px;
 }
 
