@@ -95,10 +95,10 @@ button {
     font-size: 16px;
     font-weight: bold;
     color: #000;
-    background-color: #c0c0c0;
-    border: 2px solid #808080;
-    border-radius: 4px;
-    box-shadow: 2px 2px 5px #808080;
+/*     background-color: #c0c0c0;
+    border: 2px solid #808080; */
+/*     border-radius: 4px;
+    box-shadow: 2px 2px 5px #808080; */
     cursor: pointer;
 }
 
