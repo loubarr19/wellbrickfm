@@ -59,8 +59,8 @@ body {
     align-items: center; /* Center vertically */
     position: relative;
     height: 64px; /* Set the height to match the banner */
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .vinyl {
