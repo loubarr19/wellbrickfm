@@ -1,1 +1,145 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Initial gradient */
+    transition: background 0.5s; /* Smooth transition for background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    width: 100vw;
+    overflow: hidden; /* Prevent page from expanding */
+    position: relative;
+}
+#banner {
+    width: 100%;
+    height: 60px; /* Adjust height as needed */
+    border-top: 2px solid white;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #232323;
+    background: #182b47;
+}
+
+#logo {
+    height: 50px; /* Adjust height as needed */
+    height: 40px; /* Adjust height as needed */
+    width: auto;
+}
+
+pre {
+    width: 100%; /* Make it take the full width of the screen */
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+    white-space: pre-wrap; /* Wrap long lines */
+    font-family: 'Courier New', Courier, monospace; /* Use a monospace font */
+    font-size: 14px; /* Adjust font size as needed */
+    margin: 0; /* Remove default margins */
+    padding: 10px; /* Add some padding */
+    background-color: #f0f0f0; /* Optional: Light background for contrast */
+    border: 1px solid #ccc; /* Optional: Border for visual separation */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Soft shadow */
+}
+.fade {
+    animation: fadeEffect 10s infinite; /* Slow fade effect */
+}
+@keyframes fadeEffect {
+    0% { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
+    25% { background: linear-gradient(135deg, #feb47b, #7f00ff); }
+    50% { background: linear-gradient(135deg, #7f00ff, #00d4ff); }
+    75% { background: linear-gradient(135deg, #00d4ff, #ff7e5f); }
+    100% { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
+}
+.border {
+    white-space: pre;
+    font-size: 20px;
+    text-align: center;
+}
+.typewriter {
+    text-align: center;
+    margin-bottom: 20px; /* Add space between text and record player */
+    height: 100px; /* Fixed height for the typewriter text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically within the allocated height */
+}
+.live-box {
+    display: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: 2px solid black;
+    border: 2px solid transparent;
+    background: linear-gradient(red, red) padding-box, repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 1px, transparent 2px) border-box;
+    text-align: center;
+    position: absolute; /* Position it relative to the parent */
+    top: 20px; /* Distance from top */
+    left: 20px; /* Distance from left */
+}
+.record-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start; /* Align to the top */
+    position: relative;
+    margin-top: 60px; /* Move the record player down */
+}
+.vinyl {
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Make sure it's perfectly round */
+    border-radius: 50%;
+    background-color: #000;
+    border: 10px solid #333; /* Outer rim */
+    position: relative;
+}
+.label {
+    width: 80px; /* Size of the label */
+    height: 80px; /* Size of the label */
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center the button */
+    width: 100%; /* Make sure the controls take the full width */
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background-color: #c0c0c0;
+    border: 2px solid #808080;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px #808080;
+    cursor: pointer;
+}
+button:active {
+    box-shadow: none;
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+#typewriter1, #typewriter2, #typewriter3 {
+    font-size: 14px;
+    font-weight: bold; /* Make the text bold */
+    margin: 3px 0; /* Space between lines */
+}
 
