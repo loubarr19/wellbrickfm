@@ -58,16 +58,19 @@ body {
     display: flex;
     align-items: center; /* Center vertically */
     position: relative;
-    height: 66px; /* Set the height to match the banner */
+    height: 64px; /* Set the height to match the banner */
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .vinyl {
-    width: 50px; /* Adjust the size as needed */
-    height: 50px; /* Make sure it's perfectly round */
+    width: 60px; /* Adjust the size as needed */
+    height: 60px; /* Make sure it's perfectly round */
     border-radius: 50%;
     background-color: #000;
     border: 5px solid #333; /* Outer rim */
     position: relative;
+    
 }
 
 .label {
