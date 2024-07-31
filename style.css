@@ -59,23 +59,23 @@ body {
     align-items: center; /* Center vertically */
     position: relative;
     height: 64px; /* Set the height to match the banner */
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .vinyl {
-    width: 60px; /* Adjust the size as needed */
-    height: 60px; /* Make sure it's perfectly round */
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Make sure it's perfectly round */
     border-radius: 50%;
     background-color: #000;
     border: 5px solid #333; /* Outer rim */
     position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
     
 }
 
 .label {
-    width: 20px; /* Size of the label */
-    height: 20px; /* Size of the label */
+    width: 48px; /* Size of the label */
+    height: 48px; /* Size of the label */
     border-radius: 50%;
     background-color: #fff;
     position: absolute;
@@ -120,4 +120,23 @@ button:active {
 
 #typewriter1, #typewriter2, #typewriter3 {
     display: none; /* Hide text lines */
+}
+
+/* Add this CSS to your style.css file */
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.live-box {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.live-box.flash {
+  animation: flash 1s infinite;
 }
