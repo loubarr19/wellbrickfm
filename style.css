@@ -55,6 +55,7 @@ body {
 }
 
 .record-player {
+    margin-top:5px;
     display: flex;
     align-items: center; /* Center vertically */
     position: relative;
