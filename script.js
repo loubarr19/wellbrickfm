@@ -24,9 +24,11 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
+        liveBox.classList.add('flash');
         document.getElementById('playPauseBtn').textContent = 'Pause';
         isPlaying = true;
     } else {
+        liveBox.classList.remove('flash');
         document.getElementById('playPauseBtn').textContent = 'Play';
         isPlaying = false;
     }
@@ -45,6 +47,7 @@ function togglePlayPause() {
             rotation += 1;
             vinyl.style.transform = `rotate(${rotation}deg)`;
         }, 10); // Spin every 10ms
+        liveBox.classList.add('flash');
         liveBox.style.display = 'block'; // Show LIVE box
     }
 }
